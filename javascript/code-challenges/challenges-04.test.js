@@ -304,7 +304,20 @@ You DO NOT need to use your solution to Challenge 12 in completing Challenge 13.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
-  // Solution code here...
+  arr.sort((a, b) => {
+    if (a.start < b.start) {
+      return -1;
+    } else if (a.start > b.start) {
+      return 1;
+    } else {
+      if ((a.end - a.start) < (b.end - b.start)) {
+        return -1;
+      } else if((a.end - a.start) > (b.end - b.start)) {
+        return 1;
+      }
+    }
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
