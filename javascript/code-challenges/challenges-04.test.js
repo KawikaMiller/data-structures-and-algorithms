@@ -258,7 +258,39 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-  // Solution code here...
+  let dayOrder = [
+    ['Monday', 1],
+    ['Tuesday', 2],
+    ['Wednesday', 3],
+    ['Thursday', 4],
+    ['Friday', 5],
+  ];
+
+  arr.sort((a, b) => {
+    let aVal;
+    let bVal;
+
+    dayOrder.forEach(day => {
+      if (a.dayOfWeek === day[0]) {
+        aVal = day[1];
+      }
+    });
+
+    dayOrder.forEach(day => {
+      if (b.dayOfWeek === day[0]) {
+        bVal = day[1];
+      }
+    });
+
+    if (aVal < bVal) {
+      return -1;
+    } else if (aVal > bVal) {
+      return 1;
+    } else return 0;
+
+  })
+
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
