@@ -88,7 +88,9 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
-  // Solution code here...
+  // by default, the sort method sorts elements in ascending order based on their UTF-16 value so no callback function is needed
+  arr.sort();
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -105,7 +107,14 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  // Solution code here...
+  arr.sort((a, b) => {
+    if (a.price < b.price) {
+      return -1;
+    } else if (a.price > b.price) {
+      return 1;
+    } else return 0;
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
