@@ -304,19 +304,45 @@ You DO NOT need to use your solution to Challenge 12 in completing Challenge 13.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
+  let dayOrder = [
+    ['Monday', 1],
+    ['Tuesday', 2],
+    ['Wednesday', 3],
+    ['Thursday', 4],
+    ['Friday', 5],
+  ];
+
   arr.sort((a, b) => {
-    if (a.start < b.start) {
-      return -1;
-    } else if (a.start > b.start) {
-      return 1;
-    } else {
+
+    let aDayValue;
+    let bDayValue;
+
+    dayOrder.forEach(day => {
+      if (a.dayOfWeek === day[0]) {
+        aDayValue = day[1];
+      }
+    });
+
+    dayOrder.forEach(day => {
+      if (b.dayOfWeek === day[0]) {
+        bDayValue = day[1];
+      }
+    });
+
+    if (aDayValue === bDayValue) {
       if ((a.end - a.start) < (b.end - b.start)) {
         return -1;
       } else if((a.end - a.start) > (b.end - b.start)) {
         return 1;
       }
-    }
+    } else if (aDayValue < bDayValue) {
+      return -1;
+    } else if (aDayValue > bDayValue) {
+      return 1;
+    } else return 0;
+    
   })
+  // console.log(arr);
   return arr;
 };
 
@@ -461,7 +487,7 @@ describe('Testing challenge 12', () => {
   });
 });
 
-xdescribe('Testing challenge 13', () => {
+describe('Testing challenge 13', () => {
   test('It should sort meetings by when they happen', () => {
     expect(sortSchedule(meetings)).toStrictEqual([
       new Meeting('Monday', '0900', '0945'),
