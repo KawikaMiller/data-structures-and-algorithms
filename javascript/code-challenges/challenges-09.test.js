@@ -175,7 +175,17 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  let hasChildren = false;
+  
+  arr.forEach(element => {
+    if(element.name === character) {
+      if (Object.keys(element).includes('children')) {
+        hasChildren = true;
+      }
+    }
+  })
+
+  return hasChildren;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -185,7 +195,21 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let numberOfCharacters = 0;
+
+  arr.forEach(element => {
+    // add one initially because if element exists then a person exists
+    numberOfCharacters++;
+    if (element.spouse) {
+      // add one if they have a spouse
+      numberOfCharacters++;
+    };
+    if (element.children) {
+      numberOfCharacters = numberOfCharacters + element.children.length
+    };
+  })
+
+  return numberOfCharacters;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -294,7 +318,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
   });
@@ -304,7 +328,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return the number of characters in the array', () => {
     expect(totalCharacters(characters)).toStrictEqual(27);
   });
