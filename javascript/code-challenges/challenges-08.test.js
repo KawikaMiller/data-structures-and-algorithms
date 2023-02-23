@@ -157,7 +157,13 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  return arr.match(/[A-J]*/g)
+  let newArr = [];
+  arr.forEach(element => {
+    if(element.match(/^[A-J].+/)) {
+      newArr.push(element);
+    }
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
