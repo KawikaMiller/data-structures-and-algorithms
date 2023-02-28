@@ -42,11 +42,15 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  let targetCount;
-  
-  input.map(element => {
-    element.filter(item => item === target)
-  })
+  return input
+    .map(element => (
+      element.filter(item => (
+        item === target
+      ))
+    ))
+    .flat(Infinity)
+    .length
+
 };
 
 /* ------------------------------------------------------------------------------------------------
