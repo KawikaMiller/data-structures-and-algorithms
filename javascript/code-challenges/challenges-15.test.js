@@ -1,5 +1,7 @@
 'use strict';
 
+const { prop } = require("cheerio/lib/api/attributes");
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
@@ -130,7 +132,13 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    if (a[property] < b[property]) {
+      return -1
+    } else if(a[property] > b[property]) {
+      return 1
+    } else return 0;
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
