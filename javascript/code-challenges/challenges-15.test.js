@@ -177,7 +177,53 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+  checkCol = (col) => {
+    if (
+      (board[0][col] === 'X' && board[1][col] === 'X' && board[2][col] === 'X') 
+      ||
+      (board[0][col] === 'O' && board[1][col] === 'O' && board[2][col] === 'O')
+    ) {
+        return true;
+    }
+    else return false;
+  }
+
+  checkRow = (row) => {
+    if (
+      (board[row][0] === 'X' && board[row][1] === 'X' && board[row][2] === 'X')
+      ||
+      (board[row][0] === 'O' && board[row][1] === 'O' && board[row][2] === 'O')
+    ) {
+      return true;
+    }
+    else return false;
+  }
+
+  checkDiag = () => {
+    if (
+      (board[0][0] === 'X' && board[1][1] === 'X' && board[2][2] === 'X')
+      ||
+      (board[0][2] === 'X' && board[1][1] === 'X' && board[2][0] === 'X')
+      ||
+      (board[0][0] === 'O' && board[1][1] === 'O' && board[2][2] === 'O')
+      ||
+      (board[0][2] === 'O' && board[1][1] === 'O' && board[2][0] === 'O')
+    ) {
+      return true;
+    }
+    else return false;
+  }
+
+  // if (checkCol(0) || checkCol(1) || checkCol(2) || checkRow(0) || checkRow(1) || checkRow(2) || checkDiag()) {
+  //   return true;
+  // } else return false;
+
+  let ifWin = [checkCol(0) , checkCol(1) , checkCol(2) , checkRow(0) , checkRow(1) , checkRow(2) , checkDiag()];
+  console.log(ifWin);
+  console.log(ifWin.includes(true))
+  return ifWin.includes(true);
+
+
 };
 
 /* ------------------------------------------------------------------------------------------------
