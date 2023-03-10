@@ -214,13 +214,8 @@ const detectTicTacToeWin = (board) => {
     else return false;
   }
 
-  // if (checkCol(0) || checkCol(1) || checkCol(2) || checkRow(0) || checkRow(1) || checkRow(2) || checkDiag()) {
-  //   return true;
-  // } else return false;
-
   let ifWin = [checkCol(0) , checkCol(1) , checkCol(2) , checkRow(0) , checkRow(1) , checkRow(2) , checkDiag()];
-  console.log(ifWin);
-  console.log(ifWin.includes(true))
+
   return ifWin.includes(true);
 
 
