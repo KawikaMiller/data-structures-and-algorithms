@@ -84,5 +84,10 @@ From the `data-structures-and-algorithms/javascript` folder, execute the followi
 
 Note that when you check your code into GitHub, all of your tests will automatically execute. These results should match your own, and will be found on the  **Actions** tab
 
-## Reverse Arrays
+## 401 Code Challenges
+
+### Reverse Arrays
 - [401 Code Challenge 01: Reverse Arrays](./reverseArrays/README.md)
+
+### Insert Shift Array
+- [401 Code Challenge 02: Insert Shift Arrays](./array-insert-shift/README.md)
