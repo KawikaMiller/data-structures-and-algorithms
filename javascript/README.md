@@ -91,3 +91,6 @@ Note that when you check your code into GitHub, all of your tests will automatic
 
 ### Insert Shift Array
 - [401 Code Challenge 02: Insert Shift Arrays](./array-insert-shift/README.md)
+
+### Binary Search Array
+- [401 Code Challenge 03: Binary Search Arrays](./array-binary-search/README.md)
