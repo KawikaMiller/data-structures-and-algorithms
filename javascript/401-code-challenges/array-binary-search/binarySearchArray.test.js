@@ -36,4 +36,8 @@ describe('Does binary search algorithm work correctly?', () => {
     expect(binarySearch([1, 2, 3, 4, 5], 10 )).toEqual(-1)
   })
 
+  test('throws an error if the first argument IS NOT an array', () => {
+    expect(() => binarySearch('[1, 2, 3, 4, 5]', 10 )).toThrow(Error)
+  })
+
 })

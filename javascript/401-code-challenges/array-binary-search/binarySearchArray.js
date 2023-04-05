@@ -5,6 +5,10 @@ const binarySearch = (sortedArr, searchKey) => {
   let rightBound = sortedArr.length - 1;
   let middleIdx;
 
+  if (!Array.isArray(sortedArr)) {
+    throw new Error('Invalid argument, first argument must be an array')
+  }
+
   while (leftBound <= rightBound) {
     middleIdx = Math.floor((leftBound + rightBound) / 2);
     if (sortedArr[middleIdx] < searchKey) {
