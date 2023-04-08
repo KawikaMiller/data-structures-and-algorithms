@@ -5,7 +5,10 @@ The `Node` class should contain two properties:
 - `value`, which can be a value of any data type
 - `next`, which is the next `Node` in the linked list
 
-The `LinkedList` class should consist of 0 - n amount of `Node`s and should have various methods that allow a user to modify &/o read the data in the list.
+The `LinkedList` class should have one property:
+- `head`, which is a `Node` and is the first item of the linked list.
+
+`LinkedList` should also consist of 0 - n amount of `Node`s and should have various methods that allow a user to modify &/o read the data in the list.
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
