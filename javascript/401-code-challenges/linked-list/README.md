@@ -10,6 +10,8 @@ The `LinkedList` class should have one property:
 
 `LinkedList` should also consist of 0 - n amount of `Node`s and should have various methods that allow a user to modify &/o read the data in the list.
 
+- [.js Module](index.js)
+
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
 

@@ -1,7 +1,7 @@
 'use strict';
 
 // Require the linked list implementation
-const LinkedList = require('../../linked-list');
+const { LinkedList, Node } = require('../../401-code-challenges/linked-list/index');
 
 
 /*
