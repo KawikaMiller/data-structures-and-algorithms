@@ -10,7 +10,32 @@ describe('Testing Linked List capabilities', () => {
     expect(emptyList.head.value).toBeFalsy();
   });
 
-  test('Can properly insert into the linked list', () => { 
+  test('The head property will properly point to the first node in the linked list', () => { 
+    let testList = new LinkedList('red');
+    testList.append('blue');
+    testList.append('green');
+
+    expect(testList.head.value).toEqual('red');
+  });
+
+  test('Can properly APPEND a single node to the end of the list', () => {
+    let testList = new LinkedList(1);
+    testList.append(2);
+ 
+    expect(testList.toString()).toEqual('1 -> 2 -> NULL')
+  });
+
+  test('Can properly APPEND multiple nodes to the end of the list', () => {
+    let testList = new LinkedList(1);
+    testList.append(2);
+    testList.append(3);
+    testList.append(4);
+    testList.append(5);
+ 
+    expect(testList.toString()).toEqual('1 -> 2 -> 3 -> 4 -> 5 -> NULL')
+  });
+
+  test('Can properly INSERT a single node into the linked list', () => { 
     let testList = new LinkedList('red');
     testList.append('blue');
     testList.append('green');
@@ -18,13 +43,7 @@ describe('Testing Linked List capabilities', () => {
     expect(testList.toString()).toEqual('purple -> red -> blue -> green -> NULL')
   });
 
-  test('The head property will properly point to the first node in the linked list', () => { 
-    let testList = new LinkedList('red');
-
-    expect(testList.head.value).toEqual('red');
-  });
-
-  test('Can properly insert multiple nodes into the linked list', () => {
+  test('Can properly INSERT multiple nodes into the linked list', () => {
     let testList = new LinkedList('red');
     testList.append('blue');
     testList.append('green');
@@ -33,6 +52,51 @@ describe('Testing Linked List capabilities', () => {
     testList.insert('orange');
     testList.insert('yellow');
     expect(testList.toString()).toEqual('yellow -> orange -> purple -> red -> blue -> green -> NULL')
+   });
+
+   test('Can properly INSERT BEFORE a given value in the middle of a linked list', () => {
+    let testList = new LinkedList('red');
+    testList.append('blue');
+    testList.append('green');
+    testList.append('purple');
+    testList.append('orange');
+
+    testList.insertBefore('green', 'apples')
+
+    expect(testList.toString()).toEqual('red -> blue -> apples -> green -> purple -> orange -> NULL')
+   });
+
+   test('Can properly INSERT BEFORE a node before the first node of a linked list', () => {
+    let testList = new LinkedList('red');
+    testList.append('blue');
+    testList.append('green');
+
+    testList.insertBefore('blue', 'apples')
+
+
+    expect(testList.toString()).toEqual('red -> apples -> blue -> green -> NULL')
+   });
+
+   test('Can properly INSERT AFTER a given value in the middle of a linked list', () => {
+    let testList = new LinkedList('red');
+    testList.append('blue');
+    testList.append('green');
+    testList.append('purple');
+    testList.append('orange');
+
+    testList.insertAfter('green', 'apples')
+
+    expect(testList.toString()).toEqual('red -> blue -> green -> apples -> purple -> orange -> NULL')
+   });
+
+   test('Can properly INSERT AFTER the last node in a list', () => {
+    let testList = new LinkedList('red');
+    testList.append('blue');
+    testList.append('green');
+
+    testList.insertAfter('green', 'apples')
+
+    expect(testList.toString()).toEqual('red -> blue -> green -> apples -> NULL')
    });
 
   test('Will return true when finding a value within the linked list that exists', () => { 
@@ -62,4 +126,6 @@ describe('Testing Linked List capabilities', () => {
 
     expect(testList.toString()).toEqual('red -> blue -> green -> NULL');
    });
+
+
 });

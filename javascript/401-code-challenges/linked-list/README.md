@@ -13,12 +13,23 @@ The `LinkedList` class should have one property:
 - [.js Module](index.js)
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+![Insert Before and After](./UML_diagram_insertBeforeAfter.JPG)
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+### Approach
+Since most of the `LinkedList` methods can be successfully accomplished by iterating through the list I stuck with using a `while` loop and applied conditional statments where necessary in order to complete a task.
+
+For the `.insert()` method, I knew that since a `LinkedList`'s `head` property is a `Node`, who's `next` property is just a chain of nodes nested within nodes, I could just create a new `LinkedList` and set the `next` property of the `head` Node to be the chain of nodes from the original `LinkedList`, and then use the new chain of nodes as the `head` of the original list.
+
 ### Efficiency
-- Node
+- `Node` and `LinkedList` constructor will be always have a Time and Space efficiency of `O(1)` because they both rely on one parameter/argument in order to be created.
+
+- The `LinkedList` methods `.includes()`, `.insertBefore()`, `.insertAfter()`, `.append()`, and `.toString()` will have a Time and Space efficiency of `O(n)` because they all depend on the length of the list.
+
+- The `LinkedList` method `.insert()` will have:
+  - Time of `O(1)` because it always creates a new list and then sets the value of the new list's `next` as the original linked list.
+  - Space of `O(n)` because the space taken will depend on the length of the list
 
 ## Solution
 - New linked lists can be instantiated with standard javascript class syntax, e.g. `let myLinkedList = new LinkedList(defaultHead)`
@@ -27,6 +38,10 @@ The `LinkedList` class should have one property:
 - `.append(newValue)` adds a new node to the END / TAIL of the list with a value of `newValue`
 
 - `.insert(newHead)` adds a new node to the BEGINNING / HEAD of the list with a value of `newHead`, and in turn push the pre-existing nodes down the line by one position
+
+- `.insertBefore(searchValue, newValue)` adds a new node with the value of `newValue` before the node who's value is `searchValue`
+
+- `.insertAfter(searchValue, newValue)` adds a new node with the value of `newValue` after the node who's value is `searchValue`
 
 - `.includes(searchValue)` searches the the linked list for a given `searchValue` and returns `true` if the value is found or `false` if no value is found.
 
