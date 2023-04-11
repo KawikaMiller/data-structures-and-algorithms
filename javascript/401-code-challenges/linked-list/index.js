@@ -33,7 +33,7 @@ class LinkedList {
       listValueArr.push(currentNode.value)
       currentNode = currentNode.next
     }
-    let listString = listValueArr.join(' -> ')
+    let listString = listValueArr.join(' -> ').toString();
     return `${listString} -> NULL`
   }
 
@@ -67,6 +67,40 @@ class LinkedList {
     let newList = new LinkedList(newHeadValue);
     newList.head.next = this.head;
     this.head = newList.head;
+  }
+
+  insertBefore = (searchValue, newValue) => {
+    let currentNode = this.head;
+    while(currentNode) {
+      if (currentNode.next.value === searchValue) {
+        let ogNext = currentNode.next;
+        currentNode.next = new Node(newValue);
+        currentNode.next.next = ogNext;
+        break;
+      } else if (currentNode.next === null) {
+        console.log('Cannot insert before, no value found')
+        break;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+  }
+
+  insertAfter = (searchValue, newValue) => {
+    let currentNode = this.head;
+    while (currentNode) {
+      if (currentNode.value === searchValue) {
+        let ogNext = currentNode.next;
+        currentNode.next = new Node(newValue);
+        currentNode.next.next = ogNext;
+        break;
+      } else if (currentNode.next === null) {
+        console.log('Cannot insert after, end of list')
+        break;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
   }
 
 }
