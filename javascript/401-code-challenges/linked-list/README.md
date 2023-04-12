@@ -10,21 +10,35 @@ The `LinkedList` class should have one property:
 
 `LinkedList` should also consist of 0 - n amount of `Node`s and should have various methods that allow a user to modify &/o read the data in the list.
 
-- [.js Module](index.js)
+- [LinkedList Module](./index.js)
+- [zippedList Module](./zipLists.js)
 
 ## Whiteboard Process
+
 ### Insert Before / Insert After
 ![Insert Before and After](./UML_diagram_insertBeforeAfter.JPG)
+
 ### kthFromEnd
 ![kthFromEnd](./UML_diagram_kthFromEnd.JPG)
 * Test Cases #4 in diagram should read 'if travelLength = 0' because travelLength of 0 means that the length of the list is 1
+
+### zipLists
+![zipLists](./UML_diagram_zipLists.JPG)
 
 ## Approach & Efficiency
 
 ### Approach
 Since most of the `LinkedList` methods can be successfully accomplished by iterating through the list I stuck with using a `while` loop and applied conditional statments where necessary in order to complete a task.
 
+#### Lab 05
 For the `.insert()` method, I knew that since a `LinkedList`'s `head` property is a `Node`, who's `next` property is just a chain of nodes nested within nodes, I could just create a new `LinkedList` and set the `next` property of the `head` Node to be the chain of nodes from the original `LinkedList`, and then use the new chain of nodes as the `head` of the original list.
+
+#### Lab 06
+
+#### Lab 07
+
+#### Lab 08
+For the `.zipLists()` method, since the nodes were supposed to be added to the new list alternatively, I knew that I was going to have to traverse each argument list and then add then append those values to the new zipped list before moving the `currentNode` of each argument list to the `next` node. Therefore, I declared two local variables `currentNodeA` and `currentNodeB` to track the `currentNode` of each list. Upon declaration, these local variables are set to their respective `this.head`. Then I declare a new `LinkedList`, called `zippedList`, using `currentNodeA` as it's argument for the constructor. After that, I append `currentNodeB` to the new `LinkedList`. Finally, within a `while` loop, I traverse the each list and, setting `currentNodeA = currentNodeA.next` and `currentNodeB = currentNodeB.next`, and alternatively appending those nodes to `zippedList`.
 
 ### Efficiency
 - `Node` and `LinkedList` constructor will be always have a Time and Space efficiency of `O(1)` because they both rely on one parameter/argument in order to be created.
@@ -39,6 +53,9 @@ For the `.insert()` method, I knew that since a `LinkedList`'s `head` property i
 - The method `.kthFromEnd` will have:
   - Time of `O(n)` because it depends on the length of the list
   - Space of `O(1)` because the size of the function and it's return value is always the same size
+
+- The method `.zipLists` will have:
+  - Time and Space of `O(n^2)` because it depends on the length of both lists given as arguments
 
 ## Solution
 - New linked lists can be instantiated with standard javascript class syntax, e.g. `let myLinkedList = new LinkedList(defaultHead)`
@@ -58,3 +75,5 @@ For the `.insert()` method, I knew that since a `LinkedList`'s `head` property i
 
 - `.toString()` will return a string of all the values within the linked list in a format of `HEAD -> ...nodes -> TAIL -> NULL`, where `...nodes` represent each node in the linked list. 
   - E.g. a linked list with the values `red, green, blue, apple, orange, banana` will be returned as `red -> green -> blue -> apple -> orange -> banana -> NULL`
+
+- `.zipLists()` will take two lists as arguments and return a new LinkedList which alternatively combines the nodes from both lists given as arguments.
