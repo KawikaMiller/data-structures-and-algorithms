@@ -1,4 +1,4 @@
-# Code Challenge 05 - Linked List Implementation
+# Code Challenge 05, 06, 07 - Linked List Implementation
 Create a Linked List data structure consisting of a Node class and a Linked List class. 
 
 The `Node` class should contain two properties: 
@@ -13,7 +13,11 @@ The `LinkedList` class should have one property:
 - [.js Module](index.js)
 
 ## Whiteboard Process
+### Insert Before / Insert After
 ![Insert Before and After](./UML_diagram_insertBeforeAfter.JPG)
+### kthFromEnd
+![kthFromEnd](./UML_diagram_kthFromEnd.JPG)
+* Test Cases #4 in diagram should read 'if travelLength = 0' because travelLength of 0 means that the length of the list is 1
 
 ## Approach & Efficiency
 
@@ -25,11 +29,16 @@ For the `.insert()` method, I knew that since a `LinkedList`'s `head` property i
 ### Efficiency
 - `Node` and `LinkedList` constructor will be always have a Time and Space efficiency of `O(1)` because they both rely on one parameter/argument in order to be created.
 
-- The `LinkedList` methods `.includes()`, `.insertBefore()`, `.insertAfter()`, `.append()`, and `.toString()` will have a Time and Space efficiency of `O(n)` because they all depend on the length of the list.
+- The methods `.includes()`, `.insertBefore()`, `.insertAfter()`, `.append()`, and `.toString()` 
+  - Time and Space efficiency of `O(n)` because they all depend on the length of the list.
 
-- The `LinkedList` method `.insert()` will have:
+- The method `.insert()` will have:
   - Time of `O(1)` because it always creates a new list and then sets the value of the new list's `next` as the original linked list.
   - Space of `O(n)` because the space taken will depend on the length of the list
+
+- The method `.kthFromEnd` will have:
+  - Time of `O(n)` because it depends on the length of the list
+  - Space of `O(1)` because the size of the function and it's return value is always the same size
 
 ## Solution
 - New linked lists can be instantiated with standard javascript class syntax, e.g. `let myLinkedList = new LinkedList(defaultHead)`
@@ -44,6 +53,8 @@ For the `.insert()` method, I knew that since a `LinkedList`'s `head` property i
 - `.insertAfter(searchValue, newValue)` adds a new node with the value of `newValue` after the node who's value is `searchValue`
 
 - `.includes(searchValue)` searches the the linked list for a given `searchValue` and returns `true` if the value is found or `false` if no value is found.
+
+- `.kthFromEnd(k)` gets the value of a node that is `k` places from the tail of a linked list or returns null if `k` is an invalid argument
 
 - `.toString()` will return a string of all the values within the linked list in a format of `HEAD -> ...nodes -> TAIL -> NULL`, where `...nodes` represent each node in the linked list. 
   - E.g. a linked list with the values `red, green, blue, apple, orange, banana` will be returned as `red -> green -> blue -> apple -> orange -> banana -> NULL`
