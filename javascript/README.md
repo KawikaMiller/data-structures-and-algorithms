@@ -96,4 +96,4 @@ Note that when you check your code into GitHub, all of your tests will automatic
 - [401 Code Challenge 03: Binary Search Arrays](./array-binary-search/README.md)
 
 ### Linked Lists
-- [401 Code Challenge 05: Binary Search Arrays](./linked-list/README.md)
+- [401 Code Challenge 05 - 09: Binary Search Arrays](./linked-list/README.md)
