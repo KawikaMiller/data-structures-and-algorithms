@@ -13,7 +13,11 @@ The `LinkedList` class should have one property:
 - [.js Module](index.js)
 
 ## Whiteboard Process
+### Insert Before / Insert After
 ![Insert Before and After](./UML_diagram_insertBeforeAfter.JPG)
+### kthFromEnd
+![kthFromEnd](./UML_diagram_kthFromEnd.JPG)
+* Test Cases #4 in diagram should read 'if travelLength = 0' because travelLength of 0 means that the length of the list is 1
 
 ## Approach & Efficiency
 

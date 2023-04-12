@@ -103,6 +103,37 @@ class LinkedList {
     }
   }
 
+  kthFromEnd = (k) => {
+    let travelLength = 0;
+    let currentNode = this.head;
+
+    while(currentNode) {
+      if(currentNode.next !== null) {
+        travelLength++;
+        currentNode = currentNode.next;
+      } else {
+        break;
+      }
+    }
+
+    if (travelLength < k || k < 0) {
+      return null;
+    }
+    // else if (k === travelLength || travelLength === 0) {
+    //   return this.head.value; 
+    // } 
+
+    travelLength = travelLength - k;
+    currentNode = this.head;
+
+    while(travelLength !== 0) {
+      currentNode = currentNode.next;
+      travelLength--;
+    }
+
+    return currentNode.value;
+  }
+
 }
 
 module.exports = {LinkedList, Node};
