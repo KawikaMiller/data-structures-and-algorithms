@@ -1,4 +1,4 @@
-# Code Challenge 05, 06, 07 - Linked List Implementation
+# Code Challenge 05, 06, 07, 08 - Linked List Implementation
 Create a Linked List data structure consisting of a Node class and a Linked List class. 
 
 The `Node` class should contain two properties: 
