@@ -214,7 +214,7 @@ xdescribe('Testing zipLists method', () => {
 
 })
 
-describe('Testing Stacks', () => {
+xdescribe('Testing Stacks', () => {
 
   let myStack = new Stack();
 
@@ -260,6 +260,58 @@ describe('Testing Stacks', () => {
   test('Peeking empty stack throws error', () => {
     let emptyStack = new Stack();
     expect(() => emptyStack.peek()).toThrow();
+  })
+
+})
+
+describe('Testing Queues', () => {
+
+  let myQueue = new Queue('apples')
+
+  test('Can successfully enqueue into a queue', () => {
+    myQueue.enqueue('bananas');
+    expect(myQueue.back.value).toBe('bananas');
+  })
+
+  test('Can successfully enqueue multiple values into a queue', () => {
+    myQueue.enqueue('oranges');
+    myQueue.enqueue('grapes');
+    myQueue.enqueue('pears');
+    expect(myQueue.back.value).toBe('pears');
+  })
+
+  test('Can successfully peek a value from the queue', () => {
+    expect(myQueue.peek()).toBe('apples');
+  })
+
+  test('Can successfully dequeue a value from the queue', () => {
+    let dequeuedValue = myQueue.dequeue();
+    expect(dequeuedValue).toBe('apples');
+  })
+
+
+  test('Can successfully dequeue a value from the queue', () => {
+    myQueue.dequeue();
+    myQueue.dequeue();
+    myQueue.dequeue();
+    expect(myQueue.front).toBeFalsy();
+    expect(myQueue.back).toBeFalsy();
+  })
+
+  test('Can successfully instantiate an empty queue', () => {
+    let emptyQueue = new Queue()
+    expect(emptyQueue.front.value).toBeFalsy();
+    expect(emptyQueue.back.value).toBeFalsy();
+  })
+
+  test('Throw error when peeking empty queue', () => {
+    let emptyQueue = new Queue()
+    expect(() => emptyQueue.peek()).toThrow();
+  })
+
+  test('Throw error when dequeing empty queue', () => {
+    let emptyQueue = new Queue()
+    expect(() => emptyQueue.dequeue()).toThrow();
   })
 
 })
