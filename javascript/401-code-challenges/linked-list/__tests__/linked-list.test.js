@@ -6,7 +6,7 @@ const zipLists = require('../zipLists');
 const Stack = require('../stacks');
 const Queue = require('../queues');
 
-xdescribe('Testing LinkedList methods', () => {
+describe('Testing LinkedList methods', () => {
 
   test('Can successfully instantiate an empty linked list', () => { 
     let emptyList = new LinkedList();
@@ -132,7 +132,7 @@ xdescribe('Testing LinkedList methods', () => {
 
 });
 
-xdescribe('Testing kthFromEnd method', () => {
+describe('Testing kthFromEnd method', () => {
 
   test('if k is greater than travelLength, return null', () => {
     let testList = new LinkedList('red');
@@ -176,7 +176,7 @@ xdescribe('Testing kthFromEnd method', () => {
 
 })
 
-xdescribe('Testing zipLists method', () => {
+describe('Testing zipLists method', () => {
 
   test('Able to zip two lists of the same length together and return a new zipped list', () => {
     let myList = new LinkedList('red')
