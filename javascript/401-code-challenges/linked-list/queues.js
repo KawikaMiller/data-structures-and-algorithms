@@ -6,13 +6,13 @@ class Queue extends LinkedList {
   constructor(value){
     super();
     this.front = new Node(value);
-    this.back = new Node(value);
+    this.back = this.front;
   }
 
   enqueue = (newValue) => {
     if(this.isEmpty()) {
       this.front = new Node (newValue);
-      this.back = new Node (newValue);
+      this.back = this.front;
     } else {
       let newBack = new Node(newValue);
       this.back.next = newBack;
@@ -23,7 +23,13 @@ class Queue extends LinkedList {
   dequeue = () => {
     if (this.isEmpty()) {
       throw new Error('Cannot dequeue empty queue')
-    } else {
+    } else if (this.front.next === null){
+      let oldFront = this.front;
+      this.front = null;
+      this.back = null;
+      return oldFront;
+    } 
+    else {
       let oldFront = this.front;
       this.front = this.front.next;
       oldFront.next = null;
