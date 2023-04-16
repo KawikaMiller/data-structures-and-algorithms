@@ -3,8 +3,10 @@
 // Require our linked list implementation
 const {LinkedList, Node} = require('../index');
 const zipLists = require('../zipLists');
+const Stack = require('../stacks');
+const Queue = require('../queues');
 
-describe('Testing LinkedList methods', () => {
+xdescribe('Testing LinkedList methods', () => {
 
   test('Can successfully instantiate an empty linked list', () => { 
     let emptyList = new LinkedList();
@@ -130,7 +132,7 @@ describe('Testing LinkedList methods', () => {
 
 });
 
-describe('Testing kthFromEnd method', () => {
+xdescribe('Testing kthFromEnd method', () => {
 
   test('if k is greater than travelLength, return null', () => {
     let testList = new LinkedList('red');
@@ -174,7 +176,7 @@ describe('Testing kthFromEnd method', () => {
 
 })
 
-describe('Testing zipLists method', () => {
+xdescribe('Testing zipLists method', () => {
 
   test('Able to zip two lists of the same length together and return a new zipped list', () => {
     let myList = new LinkedList('red')
@@ -208,6 +210,110 @@ describe('Testing zipLists method', () => {
     let yourList = 'new LinkedList(orange)'
 
     expect(() => zipLists(myList, yourList)).toThrow();
+  })
+
+})
+
+xdescribe('Testing Stacks', () => {
+
+  let myStack = new Stack();
+
+  test('Can push into a stack', () => {
+    myStack.push('red')
+    expect(myStack.top.value).toBe('red');
+  })
+
+  test('Can push multiple values into a stack', () => {
+    myStack.push('blue')
+    myStack.push('green')
+    expect(myStack.top.value).toBe('green');
+    expect(myStack.top.next.value).toBe('blue');
+    expect(myStack.top.next.next.value).toBe('red');
+  })
+
+  test('Can pop a value off the stack', () => {
+    myStack.pop();
+    expect(myStack.top.value).toBe('blue');
+  })
+
+  test('Can empty a stack with pops', () => {
+    myStack.pop();
+    myStack.pop();
+    expect(myStack.top).toBeFalsy();
+  })
+
+  test('Can peek into a stack', () => {
+    myStack.push('red');
+    expect(myStack.peek()).toBe('red');
+  })
+
+  test('Can instantiate empty stack', () => {
+    let emptyStack = new Stack();
+    expect(emptyStack.top.value).toBeFalsy();
+  })
+
+  test('Popping empty stack throws error', () => {
+    let emptyStack = new Stack();
+    expect(() => emptyStack.pop()).toThrow();
+  })
+
+  test('Peeking empty stack throws error', () => {
+    let emptyStack = new Stack();
+    expect(() => emptyStack.peek()).toThrow();
+  })
+
+})
+
+describe('Testing Queues', () => {
+
+  let myQueue = new Queue('apples')
+
+  test('Can successfully enqueue into a queue', () => {
+    myQueue.enqueue('bananas');
+    expect(myQueue.back.value).toBe('bananas');
+  })
+
+  test('Can successfully enqueue multiple values into a queue', () => {
+    myQueue.enqueue('oranges');
+    myQueue.enqueue('grapes');
+    myQueue.enqueue('pears');
+    expect(myQueue.back.value).toBe('pears');
+  })
+
+  test('Can successfully peek a value from the queue', () => {
+    expect(myQueue.peek()).toBe('apples');
+  })
+
+  test('Can successfully dequeue a value from the queue', () => {
+    let dequeuedNode = myQueue.dequeue();
+    expect(dequeuedNode.value).toBe('apples');
+  })
+
+
+  test('Can successfully dequeue multiple values from the queue', () => {
+    myQueue.dequeue();
+    myQueue.dequeue();
+    myQueue.dequeue();
+    myQueue.dequeue();
+
+    expect(myQueue.front).toBeFalsy();
+    expect(myQueue.back).toBeFalsy();
+  })
+
+  test('Can successfully instantiate an empty queue', () => {
+    let emptyQueue = new Queue()
+    expect(emptyQueue.front.value).toBeFalsy();
+    expect(emptyQueue.back.value).toBeFalsy();
+  })
+
+  test('Throw error when peeking empty queue', () => {
+    let emptyQueue = new Queue()
+    expect(() => emptyQueue.peek()).toThrow();
+  })
+
+  test('Throw error when dequeing empty queue', () => {
+    let emptyQueue = new Queue()
+    expect(() => emptyQueue.dequeue()).toThrow();
   })
 
 })

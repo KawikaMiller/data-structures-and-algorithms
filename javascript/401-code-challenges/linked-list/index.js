@@ -12,19 +12,6 @@ class LinkedList {
     this.head = new Node(headValue);
   }
 
-  // 
-  
-  // Iterates through the entire linked list. | 'traverse' was used in the demo but the instructions on canvas say to create a method called 'to string' which essentially accomplish the same thing. Commented out 'traverse' just in case they were supposed to both be in here.
-
-  // traverse = () => {
-  //   let currentNode = this.head;
-  //   while (currentNode) {
-  //     console.log(currentNode.value);
-  //     currentNode = currentNode.next
-  //   }
-  //   console.log('End of linked list')
-  // }
-
   // returns a string of the entire linked list's contents
   toString = () => {
     let listValueArr = [];
