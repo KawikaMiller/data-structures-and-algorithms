@@ -100,3 +100,4 @@ Note that when you check your code into GitHub, all of your tests will automatic
 - [401 Code Challenge 08: Zip Lists](./401-code-challenges/linked-list/zipLists.js)
 - [401 Code Challenge 10: Stacks](./401-code-challenges/linked-list/stacks.js)
 - [401 Code Challenge 10: Queues](./401-code-challenges/linked-list/queues.js)
+- [401 Code Challenge 11: pseudoQueues](./401-code-challenges/linked-list/pseudoQueue.jss)

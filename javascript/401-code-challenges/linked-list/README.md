@@ -1,4 +1,4 @@
-# Code Challenge 05, 06, 07, 08 - Linked List Implementation
+# Code Challenge 05, 06, 07, 08, 10, 11 - Linked List Implementation
 Create a Linked List data structure consisting of a Node class and a Linked List class. 
 
 The `Node` class should contain two properties: 
@@ -12,6 +12,9 @@ The `LinkedList` class should have one property:
 
 - [LinkedList Module](./index.js)
 - [zippedList Module](./zipLists.js)
+- [Stack Module](./stacks.js)
+- [Queue Module](./queues.js)
+- [pseudoQueue](./pseudoQueue.js)
 
 ## Whiteboard Process
 
@@ -24,6 +27,8 @@ The `LinkedList` class should have one property:
 
 ### zipLists
 ![zipLists](./UML_diagram_zipLists.JPG)
+
+![pseudoQueue](./UML_diagram_pseudoQueue.JPG)
 
 ## Approach & Efficiency
 
@@ -40,6 +45,9 @@ For the `.insert()` method, I knew that since a `LinkedList`'s `head` property i
 #### Lab 08
 For the `.zipLists()` method, since the nodes were supposed to be added to the new list alternatively, I knew that I was going to have to traverse each argument list and then add then append those values to the new zipped list before moving the `currentNode` of each argument list to the `next` node. Therefore, I declared two local variables `currentNodeA` and `currentNodeB` to track the `currentNode` of each list. Upon declaration, these local variables are set to their respective `this.head`. Then I declare a new `LinkedList`, called `zippedList`, using `currentNodeA` as it's argument for the constructor. After that, I append `currentNodeB` to the new `LinkedList`. Finally, within a `while` loop, I traverse the each list and, setting `currentNodeA = currentNodeA.next` and `currentNodeB = currentNodeB.next`, and alternatively appending those nodes to `zippedList`.
 
+#### Lab 11
+For the `pseudoQueue` class we're using 2 `Stacks` to handle the data. Since stacks use a `First In, Last Out` approach I knew that I could push values into the first stack and then pop those values out and push the popped values into a second stack to reverse the order of the nodes - therefore giving it the illusion of a `First In, First Out` queue.
+
 ### Efficiency
 - `Node` and `LinkedList` constructor will be always have a Time and Space efficiency of `O(1)` because they both rely on one parameter/argument in order to be created.
 
@@ -54,8 +62,17 @@ For the `.zipLists()` method, since the nodes were supposed to be added to the n
   - Time of `O(n)` because it depends on the length of the list
   - Space of `O(1)` because the size of the function and it's return value is always the same size
 
+#### zipLists
+
 - The method `.zipLists` will have:
   - Time and Space of `O(n^2)` because it depends on the length of both lists given as arguments
+
+#### psuedoQueue
+- The method `.enqueue` will have:
+  - Time and Space of `O(1)` because it will remain constant since there is only one operation being performed with a single value/argument.
+
+- The method `.dequeue` will have:
+  - Time and Space of `O(n)` because it will depend on how many nodes exist inside the pseudoQueue.
 
 ## Solution
 - New linked lists can be instantiated with standard javascript class syntax, e.g. `let myLinkedList = new LinkedList(defaultHead)`
@@ -77,3 +94,7 @@ For the `.zipLists()` method, since the nodes were supposed to be added to the n
   - E.g. a linked list with the values `red, green, blue, apple, orange, banana` will be returned as `red -> green -> blue -> apple -> orange -> banana -> NULL`
 
 - `.zipLists()` will take two lists as arguments and return a new LinkedList which alternatively combines the nodes from both lists given as arguments.
+
+- `pseudoQueue.enqueue(arg)` will take one argument and push that argument into StackA; No return value.
+
+- `pseudoQueue.dequeue()` will take no arguments and will iterate through StackA, popping values and pushing them into StackB, until StackA is empty. Finally, it will return the first popped value of StackB.
