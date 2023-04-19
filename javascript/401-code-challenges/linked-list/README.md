@@ -29,7 +29,11 @@ The `LinkedList` class should have one property:
 ### zipLists
 ![zipLists](./UML_diagram_zipLists.JPG)
 
+### pseudoQueue
 ![pseudoQueue](./UML_diagram_pseudoQueue.JPG)
+
+### Animal Shelter
+![AnimalShelter](./UML_diagram_animalShelter.JPG)
 
 ## Approach & Efficiency
 
@@ -48,6 +52,9 @@ For the `.zipLists()` method, since the nodes were supposed to be added to the n
 
 #### Lab 11
 For the `pseudoQueue` class we're using 2 `Stacks` to handle the data. Since stacks use a `First In, Last Out` approach I knew that I could push values into the first stack and then pop those values out and push the popped values into a second stack to reverse the order of the nodes - therefore giving it the illusion of a `First In, First Out` queue.
+
+### Lab 12
+I knew that this was going to mimic the workflow of the pseudo queue challenge so the design is essentially the same but with a few more conditional statements to the `dequeue` method.
 
 ### Efficiency
 - `Node` and `LinkedList` constructor will be always have a Time and Space efficiency of `O(1)` because they both rely on one parameter/argument in order to be created.
@@ -75,6 +82,9 @@ For the `pseudoQueue` class we're using 2 `Stacks` to handle the data. Since sta
 - The method `.dequeue` will have:
   - Time and Space of `O(n)` because it will depend on how many nodes exist inside the pseudoQueue.
 
+#### Animal Shelter
+- *Same as pseudoQueue*
+
 ## Solution
 - New linked lists can be instantiated with standard javascript class syntax, e.g. `let myLinkedList = new LinkedList(defaultHead)`
   - Passing in a value as the `defaultHead` argument will set that value as the head of the linked list.
@@ -99,3 +109,7 @@ For the `pseudoQueue` class we're using 2 `Stacks` to handle the data. Since sta
 - `pseudoQueue.enqueue(arg)` will take one argument and push that argument into StackA; No return value.
 
 - `pseudoQueue.dequeue()` will take no arguments and will iterate through StackA, popping values and pushing them into StackB, until StackA is empty. Finally, it will return the first popped value of StackB.
+
+- `AnimalShelter.enqueue(animal)` will take one argument and push it into the `inAnimals` stack. If the `animal.species` is not a `dog` or `cat` it will throw an error. If `animal.name` is not a `string` it will throw an error.
+
+-`AnimalShelter.dequeue(pref)` will take one argument which represents the preference of animal that a user would like from the shelter. It will iterate through `inAnimals`, popping values and pushing them into `outAnimals` until `inAnimals` is empty. Once that is done, it iterates through `outAnimals` searching for a match to the species preference argument given. If a match is found, it returns the match. If no match is found, it returns null. If no preference argument is given, then it will return the first animal in the pseudoqueue.
