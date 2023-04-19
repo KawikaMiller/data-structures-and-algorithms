@@ -58,15 +58,4 @@ class AnimalShelter {
   }
 }
 
-// let myShelter = new AnimalShelter();
-
-// myShelter.enqueue(new Animal('dog', 'Fido'));
-// myShelter.enqueue(new Animal('cat', 'Peanut'));
-// myShelter.enqueue(new Animal('dog', 'Snoopy'));
-// console.log('PRE_DEQUEUE: ', myShelter.inAnimals)
-// console.log('DEQUEUE: ', myShelter.dequeue('dog'))
-// console.log('MY ANIMAL SHELTER: ', myShelter.inAnimals)
-
-// console.log(myShelter.animals.top)
-
 module.exports = {AnimalShelter, Animal};

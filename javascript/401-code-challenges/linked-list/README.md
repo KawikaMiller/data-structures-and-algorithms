@@ -15,6 +15,7 @@ The `LinkedList` class should have one property:
 - [Stack Module](./stacks.js)
 - [Queue Module](./queues.js)
 - [pseudoQueue](./pseudoQueue.js)
+- [AnimalShelter](./AnimalShelter.js)
 
 ## Whiteboard Process
 
