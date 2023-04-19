@@ -3,9 +3,7 @@
 // Create a class called AnimalShelter that only holds cats and dogs
 // Shelter operates using First In, First Out approach
 
-const {Node} = require('./index');
 const Stack = require('./stacks');
-const Queue = require('./queues')
  
 class Animal {
   constructor(species, name) {
@@ -47,8 +45,9 @@ class AnimalShelter {
     // if not, pop the animal from the temporary 'outAnimals' stack and move on to the next one.
       let foundMatch = null;
       while(!this.outAnimals.isEmpty()) {
-        if (this.outAnimals.peek().species === pref && foundMatch === null) {
-          foundMatch = this.outAnimals.peek().value;
+        if ((this.outAnimals.peek().species === pref && foundMatch === null) || 
+        (!pref && foundMatch === null)) {
+          foundMatch = this.outAnimals.peek();
           this.outAnimals.pop();
         } else {
           this.inAnimals.push(this.outAnimals.pop().value);
@@ -56,42 +55,18 @@ class AnimalShelter {
       }
       return foundMatch;
     }
-
-    // else {
-    //   if (!this.inAnimals.isEmpty() && this.outAnimals.isEmpty()) {
-
-    //     while (!this.inAnimals.isEmpty()) {
-
-    //       this.outAnimals.push(this.inAnimals.pop().value);
-
-    //     }        
-    //   }
-
-    //   else if (!this.inAnimals.isEmpty() && !this.outAnimals.isEmpty()) {
-    //     let newOutStack = new Stack();
-
-    //     while (!this.inAnimals.isEmpty()) {
-
-    //       newOutStack.push(this.inAnimals.pop().value);
-
-    //     }
-
-    //     newOutStack.top.next = this.outAnimals;
-
-    //     this.outAnimals = newOutStack;
-    //   }
-
-    // }
   }
 }
 
-let myShelter = new AnimalShelter();
+// let myShelter = new AnimalShelter();
 
-myShelter.enqueue(new Animal('dog', 'Fido'));
-myShelter.enqueue(new Animal('cat', 'Peanut'));
-myShelter.enqueue(new Animal('dog', 'Snoopy'));
-console.log('PRE_DEQUEUE: ', myShelter.inAnimals)
-console.log('DEQUEUE: ',myShelter.dequeue('dog'))
-console.log('MY ANIMAL SHELTER: ', myShelter.inAnimals)
+// myShelter.enqueue(new Animal('dog', 'Fido'));
+// myShelter.enqueue(new Animal('cat', 'Peanut'));
+// myShelter.enqueue(new Animal('dog', 'Snoopy'));
+// console.log('PRE_DEQUEUE: ', myShelter.inAnimals)
+// console.log('DEQUEUE: ', myShelter.dequeue('dog'))
+// console.log('MY ANIMAL SHELTER: ', myShelter.inAnimals)
 
 // console.log(myShelter.animals.top)
+
+module.exports = {AnimalShelter, Animal};
