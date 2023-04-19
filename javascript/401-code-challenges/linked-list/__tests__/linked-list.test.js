@@ -5,8 +5,9 @@ const {LinkedList, Node} = require('../index');
 const zipLists = require('../zipLists');
 const Stack = require('../stacks');
 const Queue = require('../queues');
+const {AnimalShelter, Animal} = require('../AnimalShelter');
 
-xdescribe('Testing LinkedList methods', () => {
+describe('Testing LinkedList methods', () => {
 
   test('Can successfully instantiate an empty linked list', () => { 
     let emptyList = new LinkedList();
@@ -132,7 +133,7 @@ xdescribe('Testing LinkedList methods', () => {
 
 });
 
-xdescribe('Testing kthFromEnd method', () => {
+describe('Testing kthFromEnd method', () => {
 
   test('if k is greater than travelLength, return null', () => {
     let testList = new LinkedList('red');
@@ -176,7 +177,7 @@ xdescribe('Testing kthFromEnd method', () => {
 
 })
 
-xdescribe('Testing zipLists method', () => {
+describe('Testing zipLists method', () => {
 
   test('Able to zip two lists of the same length together and return a new zipped list', () => {
     let myList = new LinkedList('red')
@@ -214,7 +215,7 @@ xdescribe('Testing zipLists method', () => {
 
 })
 
-xdescribe('Testing Stacks', () => {
+describe('Testing Stacks', () => {
 
   let myStack = new Stack();
 
@@ -314,6 +315,39 @@ describe('Testing Queues', () => {
   test('Throw error when dequeing empty queue', () => {
     let emptyQueue = new Queue()
     expect(() => emptyQueue.dequeue()).toThrow();
+  })
+
+})
+
+xdescribe('Testing PsuedoQueue', () => {})
+
+describe('Testing Animal Shelter', () => {
+
+  let myShelter = new AnimalShelter();
+
+  test('Throw error if not a dog or cat', () => {
+    expect(() => {myShelter.enqueue(new Animal('rabbit', 'Hops'))}).toThrow()
+  })
+
+  test('Enqueue can add a dog', () => {
+    myShelter.enqueue(new Animal('dog', 'Fido'));
+    expect(myShelter.inAnimals.top.value.species).toBe('dog')
+    expect(myShelter.inAnimals.top.value.name).toBe('Fido')
+  })
+
+  test('Enqueue can add a cat', () => {
+    myShelter.enqueue(new Animal('cat', 'Fluffy'));
+    expect(myShelter.inAnimals.top.value.species).toBe('cat')
+    expect(myShelter.inAnimals.top.value.name).toBe('Fluffy')
+  })
+
+  test('Can remove the preferred animal, even when in the middle of the stack', () => {
+    myShelter.enqueue(new Animal('dog', 'Snoopy'));
+    expect(myShelter.dequeue('cat').species).toBe('cat')
+  })
+
+  test('Removes top animal when no preference given', () => {
+    expect(myShelter.dequeue()).toBeTruthy()
   })
 
 })
