@@ -16,6 +16,7 @@ The `LinkedList` class should have one property:
 - [Queue Module](./queues.js)
 - [pseudoQueue](./pseudoQueue.js)
 - [AnimalShelter](./AnimalShelter.js)
+- [bracketValidator](./bracketValidator.js)
 
 ## Whiteboard Process
 
@@ -55,6 +56,9 @@ For the `pseudoQueue` class we're using 2 `Stacks` to handle the data. Since sta
 
 ### Lab 12
 I knew that this was going to mimic the workflow of the pseudo queue challenge so the design is essentially the same but with a few more conditional statements to the `dequeue` method.
+
+### Lab 13
+
 
 ### Efficiency
 - `Node` and `LinkedList` constructor will be always have a Time and Space efficiency of `O(1)` because they both rely on one parameter/argument in order to be created.
