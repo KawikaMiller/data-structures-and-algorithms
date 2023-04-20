@@ -2,7 +2,7 @@
 
 const Stack = require('./stacks');
 
-const bracketValidation = (string) => {
+const bracketValidator = (string) => {
   let bracketStack = new Stack();
 
   // break the string into individual characters
@@ -46,4 +46,4 @@ const bracketValidation = (string) => {
 
 }
 
-module.exports = bracketValidation;
+module.exports = bracketValidator;
