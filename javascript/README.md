@@ -103,3 +103,6 @@ Note that when you check your code into GitHub, all of your tests will automatic
 - [401 Code Challenge 11: pseudoQueues](./401-code-challenges/linked-list/pseudoQueue.js)
 - [401 Code Challenge 12: AnimalShelter](./401-code-challenges/linked-list/AnimalShelter.js)
 - [401 Code Challenge 13: bracketValidator](./401-code-challenges/linked-list/bracketValidator.js)
+
+### Binary Trees & Binary Search Trees
+- [401 Code Challenge 15: Binary Trees and Binary Search Trees](./401-code-challenges/trees/binaryTree.js)
