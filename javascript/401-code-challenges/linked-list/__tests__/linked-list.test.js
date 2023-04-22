@@ -6,6 +6,7 @@ const zipLists = require('../zipLists');
 const Stack = require('../stacks');
 const Queue = require('../queues');
 const {AnimalShelter, Animal} = require('../AnimalShelter');
+const bracketValidator = require('../bracketValidator');
 
 describe('Testing LinkedList methods', () => {
 
@@ -348,6 +349,50 @@ describe('Testing Animal Shelter', () => {
 
   test('Removes top animal when no preference given', () => {
     expect(myShelter.dequeue()).toBeTruthy()
+  })
+
+})
+
+describe('Testing Bracket Validator', () => {
+
+  test('Should return true on single bracket pair', () => {
+    expect(bracketValidator('{}')).toBe(true);
+  })
+
+  test('Should return true on multi bracket pairs', () => {
+    expect(bracketValidator('{}()[]')).toBe(true);
+  })
+
+  test('Should return true when bracket pair has other characters inside', () => {
+    expect(bracketValidator('{this}(is)[gibberish]')).toBe(true);
+  })
+
+  test('Should return true when brackets have nested brackets', () => {
+    expect(bracketValidator('{}()[[]]')).toBe(true);
+  })
+
+  test('Should return true when brackets have nested brackets and other characters inside', () => {
+    expect(bracketValidator('{}{Code}[Fellows](())')).toBe(true);
+  })
+
+  test('Should return false when there are missing closing brackets', () => {
+    expect(bracketValidator('[({}]')).toBe(false);
+  })
+
+  test('Should return false when a bracket pair closes before its nested bracket pair closes', () => {
+    expect(bracketValidator('{(})')).toBe(false);
+  })
+
+  test('Should return false when string opens with closing bracket', () => {
+    expect(bracketValidator('][')).toBe(false);
+  })
+
+  test('Should return false when missing closing bracket', () => {
+    expect(bracketValidator('{')).toBe(false);
+  })
+
+  test('Should return false when brackets are mismatched', () => {
+    expect(bracketValidator('{]')).toBe(false);
   })
 
 })
