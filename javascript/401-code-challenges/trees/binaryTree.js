@@ -80,8 +80,7 @@ class BinarySearchTree extends BinaryTree {
   }
 
   contains = (searchValue) => {
-    this.preOrder(this.root);
-    return this.returnArray.includes(searchValue)
+    return this.preOrder(this.root).includes(searchValue)
   }
 
 }

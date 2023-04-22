@@ -30,8 +30,7 @@ describe('Testing Binary Trees..' , () => {
     myTree.root.left.right = new Node('E')
     myTree.root.right = new Node('C')
     myTree.root.right.left = new Node('F')
-    myTree.preOrder(myTree.root);
-    expect(myTree.returnArray).toStrictEqual([ 'A', 'B', 'D', 'E', 'C', 'F' ])
+    expect(myTree.preOrder(myTree.root)).toStrictEqual([ 'A', 'B', 'D', 'E', 'C', 'F' ])
   })
 
   test('Can successfully return a collection from a in-order traversal', () => {
@@ -41,8 +40,7 @@ describe('Testing Binary Trees..' , () => {
     myTree.root.left.right = new Node('E')
     myTree.root.right = new Node('C')
     myTree.root.right.left = new Node('F')
-    myTree.inOrder(myTree.root);
-    expect(myTree.returnArray).toStrictEqual([ 'D', 'B', 'E', 'A', 'F', 'C' ])
+    expect(myTree.inOrder(myTree.root)).toStrictEqual([ 'D', 'B', 'E', 'A', 'F', 'C' ])
   })
 
   test('Can successfully return a collection from a post-order traversal', () => {
@@ -52,8 +50,7 @@ describe('Testing Binary Trees..' , () => {
     myTree.root.left.right = new Node('E')
     myTree.root.right = new Node('C')
     myTree.root.right.left = new Node('F')
-    myTree.postOrder(myTree.root);
-    expect(myTree.returnArray).toStrictEqual([ 'D', 'E', 'B', 'F', 'C', 'A' ])
+    expect(myTree.postOrder(myTree.root)).toStrictEqual([ 'D', 'E', 'B', 'F', 'C', 'A' ])
   })
 
   test('Contains method returns proper responses', () => {
