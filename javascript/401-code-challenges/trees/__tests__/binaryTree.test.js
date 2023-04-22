@@ -56,4 +56,12 @@ describe('Testing Binary Trees..' , () => {
     expect(myTree.returnArray).toStrictEqual([ 'D', 'E', 'B', 'F', 'C', 'A' ])
   })
 
+  test('Contains method returns proper responses', () => {
+    let myBST = new BinarySearchTree('A');
+    myBST.add('B');
+    myBST.add('C');
+    expect(myBST.contains('C')).toBe(true);
+    expect(myBST.contains('D')).toBe(false);
+  })
+
 })
