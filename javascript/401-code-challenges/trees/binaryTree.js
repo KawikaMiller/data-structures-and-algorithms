@@ -11,51 +11,56 @@ class Node {
 class BinaryTree {
   constructor(nodeValue) {
     this.root = new Node(nodeValue);
-    this.returnArray = [];
   }
 
   preOrder = (root) => {
 
-    // console.log(root.value)
-    this.returnArray = [...this.returnArray, root.value]
+    let valueArray = [root.value]
     
     if (root.left !== null) {
-      this.preOrder(root.left)
+      valueArray = [...valueArray, ...this.preOrder(root.left)]
     };
 
     if (root.right !== null){
-      this.preOrder(root.right)
+      valueArray = [...valueArray, ...this.preOrder(root.right)]
     };
+
+    return valueArray
 
   }
 
   inOrder = (root) => {
 
+    let valueArray = [];
+
     if (root.left !== null) {
-      this.inOrder(root.left)
+      valueArray = [...valueArray, ...this.inOrder(root.left)]
     };
 
-    // console.log(root.value)
-    this.returnArray = [...this.returnArray, root.value];
+    valueArray = [...valueArray, ...root.value]
 
     if (root.right !== null){
-      this.inOrder(root.right)
+      valueArray = [...valueArray, ...this.inOrder(root.right)]
     };
+
+    return valueArray;
 
   }
 
   postOrder = (root) => {
 
+    let valueArray = [];
+
     if (root.left !== null) {
-      this.postOrder(root.left)
+      valueArray = [...valueArray, ...this.postOrder(root.left)]
     };
 
     if (root.right !== null){
-      this.postOrder(root.right)
+      valueArray = [...valueArray, ...this.postOrder(root.right)]
     };
 
     // console.log(root.value)
-    this.returnArray = [...this.returnArray, root.value]
+    return valueArray = [...valueArray, ...root.value]
 
   }
 }
@@ -88,15 +93,10 @@ class BinarySearchTree extends BinaryTree {
 // myTree.root.right = new Node('C')
 // myTree.root.right.left = new Node('F')
 
-// myTree.preOrder(myTree.root)
-// console.log(myTree.returnArray)
-// myTree.returnArray = [];
-// myTree.inOrder(myTree.root)
-// console.log(myTree.returnArray)
-// myTree.returnArray = [];
-// myTree.postOrder(myTree.root)
-// console.log(myTree.returnArray)
-// myTree.returnArray = [];
+// console.log(myTree.preOrder(myTree.root))
+// console.log(myTree.inOrder(myTree.root))
+// console.log(myTree.postOrder(myTree.root))
+
 
 // let BST = new BinarySearchTree('A');
 // BST.add('B');
