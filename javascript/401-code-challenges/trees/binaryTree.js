@@ -63,6 +63,17 @@ class BinaryTree {
     return valueArray = [...valueArray, ...root.value]
 
   }
+
+  maxValue = () => {
+    let values = this.preOrder(this.root);
+    let maxValue = 0;
+    values.forEach((value, idx) => {
+      if (value < values[idx+1]) {
+        maxValue = values[idx+1]
+      }
+    })
+    return maxValue;
+  }
 }
 
 class BinarySearchTree extends BinaryTree {
@@ -85,12 +96,13 @@ class BinarySearchTree extends BinaryTree {
 
 }
 
-// let myTree = new BinaryTree('A');
-// myTree.root.left = new Node('B')
-// myTree.root.left.left = new Node('D')
-// myTree.root.left.right = new Node('E')
-// myTree.root.right = new Node('C')
-// myTree.root.right.left = new Node('F')
+let myTree = new BinaryTree(1);
+myTree.root.left = new Node(2)
+myTree.root.left.left = new Node(3)
+myTree.root.left.right = new Node(5)
+myTree.root.right = new Node(4)
+myTree.root.right.left = new Node(2)
+console.log(myTree.maxValue())
 
 // console.log(myTree.preOrder(myTree.root))
 // console.log(myTree.inOrder(myTree.root))
