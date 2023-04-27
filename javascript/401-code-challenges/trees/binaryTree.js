@@ -67,6 +67,9 @@ class BinaryTree {
   maxValue = () => {
     let values = this.inOrder(this.root);
     let maxValue = 0;
+    if (!values.length) {
+      return null
+    }
     values.forEach(value => {
       if (value > maxValue) {
         maxValue = value;
