@@ -78,3 +78,5 @@ myKT.root.children[2].children = [
 
 myKT.fizzBuzzTree();
 console.dir(myKT, { depth: null }) 
+
+module.exports = {Node , kTree}
