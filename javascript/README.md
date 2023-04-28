@@ -106,3 +106,6 @@ Note that when you check your code into GitHub, all of your tests will automatic
 
 ### Binary Trees & Binary Search Trees
 - [401 Code Challenge 15: Binary Trees and Binary Search Trees](./401-code-challenges/trees/binaryTree.js)
+- [401 Code Challenge 16: Find The Maximum Value of a Binary Tree](./401-code-challenges/trees/binaryTree.js)
+- [401 Code Challenge 17: Breadth First Traversal on Binary Tree](./401-code-challenges/trees/breadthFirst.js)
+- [401 Code Challenge 18: Conduct FizzBuzz on a K-Ary Tree](./401-code-challenges/trees/kAryTree.js)

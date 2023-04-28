@@ -91,4 +91,4 @@ myTree.root.right.left = new Node(7)
 
 console.log(breadthFirst(myTree))
 
-module.exports = breadthFirst;
+module.exports = {breadthFirst, Queue};
