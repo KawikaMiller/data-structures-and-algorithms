@@ -1,6 +1,7 @@
 'use strict';
 
 const {Node, BinaryTree, BinarySearchTree} = require('../binaryTree');
+const breadthFirst = require('../breadthFirst')
 
 describe('Testing Binary Trees..' , () => {
   
@@ -59,6 +60,26 @@ describe('Testing Binary Trees..' , () => {
     myBST.add('C');
     expect(myBST.contains('C')).toBe(true);
     expect(myBST.contains('D')).toBe(false);
+  })
+
+  test('maxValue method returns the correct number', () => {
+    let myBT = new BinaryTree(10);
+    myBT.root.left = new Node(9);
+    myBT.root.left.left = new Node(15);
+    myBT.root.left.right = new Node(20);
+    myBT.root.right = new Node(5);
+    myBT.root.right.left = new Node(7);
+    expect(myBT.maxValue()).toBe(20);
+  })
+
+  test ('Breadth first traversal works and returns array of values', () => {
+    let myBT = new BinaryTree(10);
+    myBT.root.left = new Node(9);
+    myBT.root.left.left = new Node(15);
+    myBT.root.left.right = new Node(20);
+    myBT.root.right = new Node(5);
+    myBT.root.right.left = new Node(7);
+    expect(breadthFirst(myBT)).toStrictEqual([10, 9, 5, 15, 20, 7]);
   })
 
 })
