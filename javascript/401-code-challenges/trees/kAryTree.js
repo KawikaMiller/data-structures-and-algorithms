@@ -15,24 +15,16 @@ class kTree {
   depthTraversal = (root) => {
 
     if (root.value % 3 === 0 && root.value % 5 === 0) {
-      console.log(root.value)
       root.value = 'FizzBuzz';
-      console.log(root.value)
     }
     else if (root.value % 3 !== 0 && root.value % 5 !== 0) {
-      console.log(root.value)
       root.value = `${root.value}`;
-      console.log(root.value)
     }
     else if (root.value % 3 === 0 && root.value % 5 !== 0){
-      console.log(root.value)
       root.value = 'Fizz'
-      console.log(root.value)
     }
     else if (root.value % 5 === 0 && root.value % 3 !== 0){
-      console.log(root.value)
       root.value = 'Buzz'
-      console.log(root.value)
     }
 
     if(root.children) {
