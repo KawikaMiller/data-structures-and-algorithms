@@ -24,7 +24,12 @@ const InsertionSort = (array) => {
   return sorted;
 }
 
-console.log(InsertionSort([8,4,23,42,16,15]));
-console.log(InsertionSort([20,18,12,8,5,-2]));
-console.log(InsertionSort([5,12,7,5,5,7]));
-console.log(InsertionSort([2,3,5,7,13,11]));
+// console.log(InsertionSort([8,4,23,42,16,15]));
+// console.log(InsertionSort([20,18,12,8,5,-2]));
+// console.log(InsertionSort([5,12,7,5,5,7]));
+// console.log(InsertionSort([2,3,5,7,13,11]));
+
+module.exports = {
+  Insert,
+  InsertionSort
+}
