@@ -24,6 +24,8 @@ InsertionSort(int[] input)
 
 ## Whiteboard Process
 
+The step by step process can be seen within the UML diagrams
+
 ### Insert()
 
 ![Insert UML 1](./Insert_UML_1.JPG)
