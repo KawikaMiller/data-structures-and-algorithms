@@ -48,15 +48,15 @@ The step by step process can be seen within the UML diagrams. Since this method 
 
 ### Merge()
 
-![Merge UML 1](./Merge_UML_1.JPG)
-![Merge UML 2](./Merge_UML_2.JPG)
-![Merge UML 3](./Merge_UML_3.JPG)
+![Merge UML 1](./UML_Merge_1.JPG)
+![Merge UML 2](./UML_Merge_2.JPG)
+![Merge UML 3](./UML_Merge_3.JPG)
 
 ### MergeSort()
 
-![MergeSort UML 1](./MergeSort_UML_1.JPG)
-![MergeSort UML 2](./MergeSort_UML_2.JPG)
-![MergeSort UML 3](./MergeSort_UML_3.JPG)
+![MergeSort UML 1](./UML_MergeSort_1.JPG)
+![MergeSort UML 2](./UML_MergeSort_2.JPG)
+![MergeSort UML 3](./UML_MergeSort_3.JPG)
 
 ## Approach and Efficiency
 
