@@ -51,9 +51,9 @@ const MergeSort = (arr) => {
   }
 }
 
-let myArr = [8, 4, 23, 42, 16, 15];
-MergeSort(myArr);
-console.log(myArr)
+// let myArr = [8, 4, 23, 42, 16, 15];
+// MergeSort(myArr);
+// console.log(myArr)
 
 module.exports = {
   Merge,
