@@ -109,3 +109,7 @@ Note that when you check your code into GitHub, all of your tests will automatic
 - [401 Code Challenge 16: Find The Maximum Value of a Binary Tree](./401-code-challenges/trees/binaryTree.js)
 - [401 Code Challenge 17: Breadth First Traversal on Binary Tree](./401-code-challenges/trees/breadthFirst.js)
 - [401 Code Challenge 18: Conduct FizzBuzz on a K-Ary Tree](./401-code-challenges/trees/kAryTree.js)
+
+### Sorting Algorithms
+- [401 Code Challemge 26: InsertionSort](./401-code-challenges/sorting/insertion/insertion.js)
+- [401 Code Challemge 27: MergeSort](./401-code-challenges/sorting/merge/merge.js)
