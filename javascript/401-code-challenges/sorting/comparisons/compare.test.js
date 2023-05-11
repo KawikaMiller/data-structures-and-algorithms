@@ -5,24 +5,22 @@ describe("Sorters", () => {
 
   it("can sort movies by year", () => {
     const movies = sortYear(Movies);
-    // console.log('SORTED MOVIES BY YEAR: ', movies);
     expect(movies.map((m) => m.title)).toEqual([
-      "The Intouchables",
-      "Valkyrie",
+      "The Cotton Club",
+      "Crocodile Dundee",
+      "Beetlejuice",
+      "The Shawshank Redemption",
+      "Memento",
+      "City of God",
       "Ratatouille",
       "Stardust",
-      "City of God",
-      "Memento",
-      "The Shawshank Redemption",
-      "Beetlejuice",
-      "Crocodile Dundee",
-      "The Cotton Club",
+      "Valkyrie",
+      "The Intouchables",
     ]);
   });
 
   it("can sort movies by title", () => {
     const movies = sortTitle(Movies);
-    console.log('SORTED BY TITLE: ', movies)
     expect(movies.map((m) => m.title)).toEqual([
       "Beetlejuice",
       "City of God",
