@@ -63,6 +63,7 @@ The step by step process can be seen within the UML diagrams. Since this method 
 Since the pseudocode was already pre-written for us in todays code challenge all I had to focus on was creating a verbose UML.
 
 Efficiency is `O(n log(n))`
+
 *Honestly, I'm not exactly sure how to explain this one and I only know this because of a google search. I plan on asking for clarification tomorrow in class (class 28)*
 
 ## Solution
