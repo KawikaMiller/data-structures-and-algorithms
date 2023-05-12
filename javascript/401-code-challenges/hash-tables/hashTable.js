@@ -1,6 +1,6 @@
 'use strict'
 
-const { LinkedList, Node } = require('../linked-list/index');
+const { LinkedList } = require('../linked-list/index');
 
 class HashTable {
   constructor(size){
@@ -23,7 +23,7 @@ class HashTable {
     let hashValue = this.hash(key);
 
     if (!this.buckets[hashValue]){
-      return undefined
+      return null
     }
     // imitate the LinkedList method .includes(), but instead of returning a boolean we return the value from the bucket
     else {
@@ -34,7 +34,7 @@ class HashTable {
         }
         else if (currentNode.next) {
           currentNode = currentNode.next
-        } else return undefined
+        } else return null
       }
     }
   }
@@ -108,18 +108,6 @@ class HashTable {
 
 }
 
-let myHashTable = new HashTable(100);
-
-// console.log(myHashTable.hash('test'))
-// myHashTable.hash('test');
-myHashTable.set('test', 'value');
-myHashTable.set('test2', 'value2');
-myHashTable.set('apples', '2oranges');
-myHashTable.set('apples', '3oranges');
-myHashTable.set('apples', 'bananas');
-myHashTable.set('fefi', 'fofum');
-myHashTable.set('foo', 'bar');
-console.log(myHashTable.keys())
-// console.log(myHashTable.get('test'));
-// console.log(myHashTable.has('test'));
-// console.log(myHashTable.buckets[60].head)
+module.exports = {
+  HashTable
+}
