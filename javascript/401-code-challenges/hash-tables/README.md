@@ -42,16 +42,36 @@ Implement a Hashtable Class with the following methods:
 
 ## Approach and Efficiency
 
-### .get(key)
-- **Approach**
-  - Since we know that the value of any bucket will a linked list in order to account for potential collisions, we know that we can traverse the linked list to find a specific key if we need to.
+### .get(key) and .has()
+- **Approach:**
+  - Since we know that the value of any bucket will be a linked list in order to account for potential collisions, we know that we can traverse the linked list to find a specific key if we need to.
   - Once we identify the specific bucket we need to read from, we can then check if the `head.value[key]` of the linked list within the bucket matches the `key` argument given to the `.get()` method. 
     - If it does, we return `head.value`. If not, we continue to traverse the linked list and check if `node.value[key]` matches `key`. 
     - If we make it to the end of the linked list without finding a match, we return null.
 
-- **Efficiency**: 
+  -`.has()` follows the same logic but returns `true` or `false` instead of a `key:pair` value or `null`
+
+- **Efficiency:** 
   - Time of O(1 + (n-1)) because the hashValue takes us directly to the bucket that we need to read from, however if that bucket has collisions then we need to traverse a linked list to find the correct key
   - Space of O(1) because we are only returning one `key:value` pair
+
+### .set()
+- **Approach:**
+  - Since we know that the value of any bucket will be a linked list in order to account for potential collisions, we know that we will either be setting the value of the head of the linked list OR be appending a new node to the end of the linked list.
+  - Once we identify the specific bucket we need to set a value to, we can then check if `bucket.head` is a truthy value.
+    - If it IS NOT truthy, then we know we need to instantiate a new linked list as the value of the bucket, and then set the `head` of the linked list as the `key:value` pair.
+    - If it IS truthy, then we know that we need to append the `key:value` pair to the end of the linked list.
+
+- **Efficiency:**
+  - Time of O(1 + (n-1)) because the hashValue takes us directly to the bucket that we need to set our key:value pair to, however if that bucket has collisions then we need to traverse the linked list in order to append the key:value pair to the linked list.
+  
+  - Space - O(1) because we are only returning setting one key:value pair
+
+### .keys()
+- **Approach:**
+
+- **Efficiency:**
+
 
 ## Solution
 
