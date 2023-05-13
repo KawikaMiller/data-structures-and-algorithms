@@ -110,6 +110,9 @@ Note that when you check your code into GitHub, all of your tests will automatic
 - [401 Code Challenge 17: Breadth First Traversal on Binary Tree](./401-code-challenges/trees/breadthFirst.js)
 - [401 Code Challenge 18: Conduct FizzBuzz on a K-Ary Tree](./401-code-challenges/trees/kAryTree.js)
 
-### Sorting Algorithms
-- [401 Code Challemge 26: InsertionSort](./401-code-challenges/sorting/insertion/insertion.js)
-- [401 Code Challemge 27: MergeSort](./401-code-challenges/sorting/merge/merge.js)
+### Sorting Algorithms & Hash Tables
+- [401 Code Challenge 26: InsertionSort](./401-code-challenges/sorting/insertion/insertion.js)
+- [401 Code Challenge 27: MergeSort](./401-code-challenges/sorting/merge/merge.js)
+- [401 Code Challenge 28: Compare](./401-code-challenges/sorting/comparisons/sort.js)
+- ~~401 Code Challenge 29 : Mock Interview~~
+- [401 Code Challenge 30: HashTables](./401-code-challenges/hash-tables/hashTable.js)

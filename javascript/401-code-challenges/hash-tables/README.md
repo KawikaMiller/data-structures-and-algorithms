@@ -1,5 +1,7 @@
 # Code Challenge: Class 27
 
+
+[hashTable.js](./hashTable.js)
 Implement a Hashtable Class with the following methods:
 
 - `set`

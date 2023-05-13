@@ -28,7 +28,8 @@ class LinkedList {
   includes = (searchValue) => {
     let currentNode = this.head;
     while (currentNode) {
-      if (currentNode.value === searchValue) {
+      // by stringifying the currentNode.value and searchValue we are also able to compare objects
+      if (JSON.stringify(currentNode.value) === JSON.stringify(searchValue)) {
         return true;
       } else if (currentNode.next) {
         currentNode = currentNode.next
