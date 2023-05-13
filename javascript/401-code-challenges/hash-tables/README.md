@@ -52,7 +52,9 @@ Implement a Hashtable Class with the following methods:
   -`.has()` follows the same logic but returns `true` or `false` instead of a `key:pair` value or `null`
 
 - **Efficiency:** 
+
   - Time of O(1 + (n-1)) because the hashValue takes us directly to the bucket that we need to read from, however if that bucket has collisions then we need to traverse a linked list to find the correct key
+
   - Space of O(1) because we are only returning one `key:value` pair
 
 ### .set()
@@ -63,14 +65,24 @@ Implement a Hashtable Class with the following methods:
     - If it IS truthy, then we know that we need to append the `key:value` pair to the end of the linked list.
 
 - **Efficiency:**
+
   - Time of O(1 + (n-1)) because the hashValue takes us directly to the bucket that we need to set our key:value pair to, however if that bucket has collisions then we need to traverse the linked list in order to append the key:value pair to the linked list.
   
   - Space - O(1) because we are only returning setting one key:value pair
 
 ### .keys()
 - **Approach:**
+  - We know that at bare minimum we're going to have to iterate through the entire `buckets` array but we also have to account for any bucket that has a linked list with multiple values - which we will have to traverse as well and check all of it's keys.
+  - Therefore, we know that we'll have a triply-nested loop. 
+    - One loop to iterate through each bucket
+    - One loop to iterate through all the keys within a bucket and put them inside of an array
+    - A final loop to check if the array of keys from the 2nd loop already exist in the output array
 
 - **Efficiency:**
+
+  - Time - O(n * n) because we have to iterate through every bucket and potentially every node inside of the linked lists inside of each bucket.
+
+  - Space - O(n * n) because at the very most there would be a unique key for every single bucket and there could be a unique key for every node inside of the linked list inside of the bucket
 
 
 ## Solution
