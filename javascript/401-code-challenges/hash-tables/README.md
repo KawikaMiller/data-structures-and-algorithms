@@ -25,11 +25,22 @@ Implement a Hashtable Class with the following methods:
 
 ## Whiteboard Process
 
+### .get()
 
+![.get() UML](./UML_hashtable_get.JPG)
 
 ## Approach and Efficiency
 
+### .get(key)
+- **Approach**
+  - Since we know that the value of any bucket will a linked list in order to account for potential collisions, we know that we can traverse the linked list to find a specific key if we need to.
+  - Once we identify the specific bucket we need to read from, we can then check if the `head.value[key]` of the linked list within the bucket matches the `key` argument given to the `.get()` method. 
+    - If it does, we return `head.value`. If not, we continue to traverse the linked list and check if `node.value[key]` matches `key`. 
+    - If we make it to the end of the linked list without finding a match, we return null.
 
+- **Efficiency**: 
+  - Time of O(1 + (n-1)) because the hashValue takes us directly to the bucket that we need to read from, however if that bucket has collisions then we need to traverse a linked list to find the correct key
+  - Space of O(1) because we are only returning one `key:value` pair
 
 ## Solution
 
