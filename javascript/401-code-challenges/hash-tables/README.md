@@ -36,6 +36,10 @@ Implement a Hashtable Class with the following methods:
 ### .set()
 ![.set() UML](./UML_hashtable_set.JPG)
 
+### .keys()
+
+![.keys() UML](./UML_hashtable_keys.JPG)
+
 ## Approach and Efficiency
 
 ### .get(key)
