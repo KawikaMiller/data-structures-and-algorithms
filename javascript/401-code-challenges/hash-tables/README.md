@@ -25,9 +25,16 @@ Implement a Hashtable Class with the following methods:
 
 ## Whiteboard Process
 
-### .get()
+### .get() & .has()
 
 ![.get() UML](./UML_hashtable_get.JPG)
+
+- `.get()` and `.has()` effectively follow the same logic but the main difference is that:
+  - `.get()` returns either a `key:pair` value OR `null`
+  - `.has()` returns either `true` OR `false` 
+
+### .set()
+![.set() UML](./UML_hashtable_set.JPG)
 
 ## Approach and Efficiency
 
