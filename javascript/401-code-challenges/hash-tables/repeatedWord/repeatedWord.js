@@ -1,7 +1,7 @@
 const { HashTable } = require('../hashTable');
 
 const repeatedWord = (string) => {
-  let hashedString = new HashTable(100);
+  let hashedString = new HashTable(500);
   let cleanString = string.replace(/[^a-zA-Z ]+/g, '')
   let stringArr = cleanString.split(' ');
 

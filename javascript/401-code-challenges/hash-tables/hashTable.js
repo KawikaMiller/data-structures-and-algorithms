@@ -102,7 +102,7 @@ class HashTable {
       hashedKeys.push(key.charCodeAt(idx))
     })
 
-    return hashedKeys.reduce((previousValue, currentValue) => previousValue * currentValue, 1) * 599 % this.buckets.length;
+    return hashedKeys.reduce((previousValue, currentValue) => previousValue + currentValue, 1) * 599 % this.buckets.length;
 
   }
 
