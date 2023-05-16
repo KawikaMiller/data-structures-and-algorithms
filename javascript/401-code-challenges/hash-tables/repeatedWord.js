@@ -21,8 +21,12 @@ const repeatedWord = (string) => {
   })
 
   let mostUsedWord = {placeholder: 0};
+  let allWordCount = [];
 
   hashedString.buckets.forEach(element => {
+    if (element){
+      allWordCount.push(element);
+    }
     let elementValue = Object.values(element)[0];
     let mostUsedWordValue = Object.values(mostUsedWord)[0];
     if (elementValue > mostUsedWordValue) {
@@ -30,10 +34,13 @@ const repeatedWord = (string) => {
     };
   })
 
-  return mostUsedWord;
+  return {
+    mostUsedWord,
+    allWordCount,
+  };
 }
 
-repeatedWord('Once upon a time, there was a brave princess who...');
+console.log(repeatedWord('Once upon a time, there was a brave princess who...'));
 
 module.exports = {
   repeatedWord
