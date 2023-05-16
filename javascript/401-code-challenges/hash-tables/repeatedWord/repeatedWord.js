@@ -1,4 +1,4 @@
-const { HashTable } = require('./hashTable');
+const { HashTable } = require('../hashTable');
 
 const repeatedWord = (string) => {
   let hashedString = new HashTable(100);
@@ -39,8 +39,6 @@ const repeatedWord = (string) => {
     allWordCount,
   };
 }
-
-console.log(repeatedWord('Once upon a time, there was a brave princess who...'));
 
 module.exports = {
   repeatedWord
