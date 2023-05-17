@@ -1,6 +1,6 @@
 'use strict'
 
-const { LinkedList } = require('../linked-list/index');
+const { LinkedList } = require('../linkedList/index');
 
 class HashTable {
   constructor(size){
@@ -95,11 +95,13 @@ class HashTable {
 
   hash = (key) => {
 
+    key = `${key}`
     let spreadKey = [...key];
+    
     let hashedKeys = [];
 
     spreadKey.forEach((k, idx) => {
-      hashedKeys.push(key.charCodeAt(idx))
+      hashedKeys.push(`${key}`.charCodeAt(idx))
     })
 
     return hashedKeys.reduce((previousValue, currentValue) => previousValue * currentValue, 1) * 599 % this.buckets.length;
