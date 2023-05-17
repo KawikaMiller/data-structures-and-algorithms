@@ -9,7 +9,7 @@ Each type of code challenge has slightly different instructions. Please refer to
 ### Data Structure: New Implementation
 
 - Create a new folder under the `javascript` level, with the name of the data structure and complete your implementation there
-  - i.e. `linked-list`
+  - i.e. `linkedList`
 - Implementation (the data structure "class")
   - The implementation of the data structure must be named `index.js`
   - Your implementation must be completed as a proper ES6 Class, and exported as a node module
@@ -32,7 +32,7 @@ Each type of code challenge has slightly different instructions. Please refer to
 
 - Tests
   - Create folder named `__tests__` and within it, a test file called `[data-structure].test.js`
-    - i.e. `__tests__/linked-list.test.js`
+    - i.e. `__tests__/linkedList.test.js`
     - Your tests will then need to require the data structure you're testing
       - i.e. `const LinkedList = require('../index');
 
@@ -43,7 +43,7 @@ Each type of code challenge has slightly different instructions. Please refer to
   - Remember, you'll have access to `this` within your class methods
 - Tests
   - You will have folder named `__tests__` and within it, a test file called `[data-structure].test.js`
-    - i.e. `__tests__/linked-list.test.js`
+    - i.e. `__tests__/linkedList.test.js`
     - Add to the tests written for this data structure to cover your new method(s)
 
 ### Code Challenge / Algorithm
@@ -60,7 +60,7 @@ Code challenges should be completed within a folder named `code-challenges` unde
     - Name the actual challenge file with the name of the challenge, in `kebab-case`
       - i.e. `find-maximum-value.js`
     - Reminder: Your challenge file will then need to require the data structure you're using to implement
-      - i.e. `const LinkedList = require('../linked-list');
+      - i.e. `const LinkedList = require('../linkedList');
     - Your challenge function name is up to you, but it's recommended that you use camel case
       - i.e. `function findMaximumValue(list) { ... }`
     - Be sure to export your function so that you can write tests
@@ -77,7 +77,7 @@ If you setup your folders according to the above guidelines, running tests becom
 From the `data-structures-and-algorithms/javascript` folder, execute the following commands:
 
 - **Run every possible test** - `npm test`
-- **Run a test for a data structure** - `npm test linked-list`
+- **Run a test for a data structure** - `npm test linkedList`
 - **Run a test for a specific challenge** - `npm test reverse-ll`
 
 #### Live Tests
@@ -96,13 +96,13 @@ Note that when you check your code into GitHub, all of your tests will automatic
 - [401 Code Challenge 03: Binary Search Arrays](./array-binary-search/README.md)
 
 ### Linked Lists
-- [401 Code Challenge 05 - 07: Linked Lists](./401-code-challenges/linked-list/index.js)
-- [401 Code Challenge 08: Zip Lists](./401-code-challenges/linked-list/zipLists.js)
-- [401 Code Challenge 10: Stacks](./401-code-challenges/linked-list/stacks.js)
-- [401 Code Challenge 10: Queues](./401-code-challenges/linked-list/queues.js)
-- [401 Code Challenge 11: pseudoQueues](./401-code-challenges/linked-list/pseudoQueue.js)
-- [401 Code Challenge 12: AnimalShelter](./401-code-challenges/linked-list/AnimalShelter.js)
-- [401 Code Challenge 13: bracketValidator](./401-code-challenges/linked-list/bracketValidator.js)
+- [401 Code Challenge 05 - 07: Linked Lists](./401-code-challenges/linkedList/index.js)
+- [401 Code Challenge 08: Zip Lists](./401-code-challenges/linkedList/zipLists.js)
+- [401 Code Challenge 10: Stacks](./401-code-challenges/linkedList/stacks.js)
+- [401 Code Challenge 10: Queues](./401-code-challenges/linkedList/queues.js)
+- [401 Code Challenge 11: pseudoQueues](./401-code-challenges/linkedList/pseudoQueue.js)
+- [401 Code Challenge 12: AnimalShelter](./401-code-challenges/linkedList/AnimalShelter.js)
+- [401 Code Challenge 13: bracketValidator](./401-code-challenges/linkedList/bracketValidator.js)
 
 ### Binary Trees & Binary Search Trees
 - [401 Code Challenge 15: Binary Trees and Binary Search Trees](./401-code-challenges/trees/binaryTree.js)
