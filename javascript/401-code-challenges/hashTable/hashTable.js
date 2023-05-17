@@ -95,11 +95,18 @@ class HashTable {
 
   hash = (key) => {
 
-    let spreadKey = [...key];
+    let spreadKey = [];
+
+    if (typeof key === 'string'){
+      spreadKey = [...key];
+    } else {
+      spreadKey.push(`${key}`)
+    }
+    
     let hashedKeys = [];
 
     spreadKey.forEach((k, idx) => {
-      hashedKeys.push(key.charCodeAt(idx))
+      hashedKeys.push(`${key}`.charCodeAt(idx))
     })
 
     return hashedKeys.reduce((previousValue, currentValue) => previousValue * currentValue, 1) * 599 % this.buckets.length;
