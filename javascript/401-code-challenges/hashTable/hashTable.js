@@ -95,13 +95,8 @@ class HashTable {
 
   hash = (key) => {
 
-    let spreadKey = [];
-
-    if (typeof key === 'string'){
-      spreadKey = [...key];
-    } else {
-      spreadKey.push(`${key}`)
-    }
+    key = `${key}`
+    let spreadKey = [...key];
     
     let hashedKeys = [];
 
