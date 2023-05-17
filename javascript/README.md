@@ -117,3 +117,4 @@ Note that when you check your code into GitHub, all of your tests will automatic
 - ~~401 Code Challenge 29 : Mock Interview~~
 - [401 Code Challenge 30: HashTables](./401-code-challenges/hash-tables/hashTable.js)
 - [401 Code Challenge 31: HashTables - Repeated Word](./401-code-challenges/hash-tables/repeatedWord/repeatedWord.js)
+- [401 Code Challenge 32: HashTables - Repeated Word](./401-code-challenges/treeIntersection/tree-intersection.js)
