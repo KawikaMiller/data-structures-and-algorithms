@@ -18,7 +18,7 @@ const leftJoin = (leftTable, rightTable) => {
       } else {
         values = [valueA[key], null]
       }
-      
+
       leftJoinData.push( {[key]: values} );
     })
 
@@ -28,17 +28,7 @@ const leftJoin = (leftTable, rightTable) => {
   }
 }
 
-let A = new HashTable(100);
-A.set('tall', 'big');
-A.set('safe', 'secure');
-A.set('jump', 'vault');
 
-let B = new HashTable(100);
-B.set('tall', 'small');
-B.set('safe', 'dangerous');
-B.set('run', 'walk');
-
-console.log(leftJoin(A, B))
 
 module.exports = {
   leftJoin
