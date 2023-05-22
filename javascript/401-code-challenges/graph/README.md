@@ -1,4 +1,4 @@
-# Code Challenge: Class 27
+# Code Challenge: Class 35
 
 [graph.js](./graph.js)
 
@@ -34,20 +34,96 @@ Implement a directed graph data structure. The graph should be represented as an
 
 ## Whiteboard Process
 
+![UML addEdge](./UML_Graph_addEdge.JPG)
+
+![UML addVertex](./UML_Graph_addVertex.JPG)
+
+*I only made a UML for the `addVertex` and `addEdge` methods since the other three methods are just one liners that use the built-in methods & properties from the [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) data structure.*
+
+-`getVertices` uses [Map.keys()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys)
+-`getEdges` uses [Map.get()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get)
+-`size` uses [Map.size](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size)
+
 
 ## Approach and Efficiency
 
+### addEdge()
 - **Approach:**
+  The first thing we have to establish is if the `startVertex` &/o `endVertex` arguments exist within the adjacency list - if either one DO NOT exist then we need to throw an error because we cannot establish an edge between nodes that do not exist.
 
+  After that, we simply create an edge using the `endVertex` and the `weight` arguments. Then get the exisiting edges from the `startVertex` by using the `.get()` method of the `Map` data structure, and push the new edge into the array of existing edges.
 
 - **Efficiency:** 
 
-  - Time: 
+  - Time: O(1) because `.get()` reads directly from our `Map` and does not require looping/iterating. 
 
-  - Space: 
+  - Space: O(1) because we're always instantiating a single `Edge` object and adding it to the array of existing edges.
+
+### addVertex()
+- **Approach:**
+  First we need to instantiate a new `Vertex` object and pass the `value` argument of `.addVertex()` into the `Vertex` constructor. Once we have our vertex object, we can call `.set()` on our adjacencyList and pass in the vertex and an empty array. The empty array will hold all of the vertex's edges/neighbors if they are ever estabished.
+
+- **Efficiency:** 
+
+  - Time: O(1), because the method `.set()` from the `Map` data structure will always add to the end of the map, therefore there is no looping/iterating and it knows exactly where the new data needs to be put.
+
+  - Space: O(1), because we're always returning a single `Vertex` object 
 
 ## Solution
 
 ```
+class Vertex {
+  constructor(value){
+    this.value = value;
+  }
+}
 
+class Edge {
+  constructor(vertex, weight){
+    this.vertex = vertex;
+    this.weight = weight;
+  }
+}
+
+class Graph {
+  constructor() {
+    this.adjacencyList = new Map();
+  }
+
+  addVertex = (value) => {
+    let newVertex = new Vertex(value);
+    // the array used as the second argument will hold all the adjacent vertices to the first argument
+    this.adjacencyList.set(newVertex, [])
+    return newVertex;
+  }
+
+  addEdge = (startVertex, endVertex, weight = 0) => {
+    // check to see if adjacencyList has start and end vertices
+    if (!this.adjacencyList.has(startVertex)){
+      console.error('startVertex argument is not in adjacencyList')
+    } else if (!this.adjacencyList.has(endVertex)){
+      console.error('endVertex argument is not in adjacencyList')
+    }
+    // instantiate new edge
+    const newEdge = new Edge(endVertex, weight);
+    // get the startVertex
+    const startVertexEdges = this.adjacencyList.get(startVertex);
+    // push the edge into the array of adjacent vertices
+    startVertexEdges.push(newEdge)
+  }
+
+  getVertices = () => {
+    // return all the vertices of a graph
+    return [...this.adjacencyList.keys()]
+  }
+
+  getNeighbors = (vertex) => {
+    // return the edges of a given node
+    return this.adjacencyList.get(vertex);
+  }
+
+  size = () => {
+    return this.adjacencyList.size;
+  }
+}
 ```
