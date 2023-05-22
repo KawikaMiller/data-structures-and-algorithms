@@ -119,3 +119,5 @@ Note that when you check your code into GitHub, all of your tests will automatic
 - [401 Code Challenge 31: HashTables - Repeated Word](./401-code-challenges/hash-tables/repeatedWord/repeatedWord.js)
 - [401 Code Challenge 32: Tree Intersection](./401-code-challenges/treeIntersection/tree-intersection.js)
 - [401 Code Challenge 33: HashTables - Left Join](./401-code-challenges/leftJoin/leftJoin.js)
+- ~~401 Code Challenge 34 : Mock Interview~~
+- [401 Code Challenge 35: Graph (Directed Graph, Adjacency List)](./401-code-challenges/graph/graph.js)
