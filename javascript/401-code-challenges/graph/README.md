@@ -38,7 +38,9 @@ Implement a directed graph data structure. The graph should be represented as an
 
 ![UML addVertex](./UML_Graph_addVertex.JPG)
 
-*I only made a UML for the `addVertex` and `addEdge` methods since the other three methods are just one liners that use the built-in methods & properties from the [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) data structure.*
+![UML breadthFirst](./UML_Graph_breadthFirst.JPG)
+
+*I only made a UML for the `addVertex`, `addEdge`, and `breadthFirst` methods since the other three methods are just one liners that use the built-in methods & properties from the [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) data structure.*
 
 -`getVertices` uses [Map.keys()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys)
 -`getEdges` uses [Map.get()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get)
@@ -67,7 +69,20 @@ Implement a directed graph data structure. The graph should be represented as an
 
   - Time: O(1), because the method `.set()` from the `Map` data structure will always add to the end of the map, therefore there is no looping/iterating and it knows exactly where the new data needs to be put.
 
-  - Space: O(1), because we're always returning a single `Vertex` object 
+  - Space: O(1), because we're always returning a single `Vertex` object
+
+### breadthFirst()
+- **Approach:**
+  Since the method does not take an argument, we start at the very first vertex in our adjacency list. We know how breadth first traversal operates because they are similar to a tree, except we know that they can potentially have cycles which would result in an endless loop. To prevent this, whenever we traverse across a vertex we push it into a `visited` array and at the beginning of every loop/traversal we check to see if the vertex we are currently visiting already exists in the `visited` array.
+
+  From there we enqueue each vertex into a queue and continue to loop through the graph so long as the queue is not empty. Every loop, we dequeue the front of the queue, and then check if that dequeued vertex has any neighbors. If it does, we check to see if those neighbors already exist within `visited` and if they DO NOT then we enqueue them and add them to the `visited` array.
+
+
+- **Efficiency:** 
+
+- Time: O(n), because the time taken to complete the traversal depends on how many vertices a graph has or how many vertices are linked together.
+
+- Space: O(1), because we're returning an array of all vertices visited.
 
 ## Solution
 
@@ -124,6 +139,30 @@ class Graph {
 
   size = () => {
     return this.adjacencyList.size;
+  }
+
+    breadthFirst = () => {
+    let vertices = this.getVertices();
+    if(!vertices.length){
+      console.error('Graph has no vertices. Cannot execute breadth first traversal')
+    };
+    let queue = new Queue(vertices[0]);
+    let visited = [vertices[0]];
+
+    while(!queue.isEmpty()){
+      let dqVertex = queue.dequeue().value;
+      let dqNeighbors = this.getNeighbors(dqVertex);
+      if (dqNeighbors.length > 0) {
+        dqNeighbors.forEach(neighbor => {
+          if (!visited.find(item => item === neighbor.vertex)) {
+            visited.push(neighbor.vertex);
+            queue.enqueue(neighbor.vertex);
+          }
+        })
+      }
+    }
+
+    return visited;
   }
 }
 ```
