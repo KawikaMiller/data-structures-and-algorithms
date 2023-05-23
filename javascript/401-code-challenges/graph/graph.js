@@ -1,5 +1,7 @@
 'use strict';
 
+const Queue = require('../linkedList/queues');
+
 // `Vertex` - A vertex, also called a “node”, is a data object that can have zero or more adjacent vertices.
 // `Edge` - An edge is a connection between two nodes.
 // `Neighbor` - The neighbors of a node are its adjacent nodes, i.e., are connected via an edge.
@@ -56,6 +58,30 @@ class Graph {
 
   size = () => {
     return this.adjacencyList.size;
+  }
+
+  breadthFirst = () => {
+    let vertices = this.getVertices();
+    if(!vertices.length){
+      console.error('Graph has no vertices. Cannot execute breadth first traversal')
+    };
+    let queue = new Queue(vertices[0]);
+    let visited = [vertices[0]];
+
+    while(!queue.isEmpty()){
+      let dqVertex = queue.dequeue().value;
+      let dqNeighbors = this.getNeighbors(dqVertex);
+      if (dqNeighbors.length > 0) {
+        dqNeighbors.forEach(neighbor => {
+          if (!visited.find(item => item === neighbor.vertex)) {
+            visited.push(neighbor.vertex);
+            queue.enqueue(neighbor.vertex);
+          }
+        })
+      }
+    }
+
+    return visited;
   }
 }
 

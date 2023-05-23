@@ -15,20 +15,26 @@ describe('Testing Graph data structure (Directed graph represented as an adjacen
   test('An edge can be successfully added to the graph', () => {
     cVertex = testGraph.addVertex('C')
     bVertex = testGraph.addVertex('B')
+    testGraph.addEdge(aVertex, bVertex, 2);
     testGraph.addEdge(bVertex, cVertex, 3);
+    testGraph.addEdge(cVertex, aVertex)
     expect(testGraph.getNeighbors(bVertex)).toBeTruthy();
   })
 
   test('A collection of all vertices can be properly retrieved from the graph', () => {
     let emptyGraph = new Graph();
+    // console.log('GRAPH VERTICES', testGraph.getVertices())
     expect(testGraph.getVertices()).toBeTruthy();
     expect(emptyGraph.getVertices()).toStrictEqual([]);
   })
 
   test('All approriate neighbors can be retrieved from the graph', () => {
-    expect(testGraph.getNeighbors(bVertex)).toBeTruthy();
-    expect(testGraph.getNeighbors(cVertex)).toStrictEqual([]);
-    expect(testGraph.getNeighbors(aVertex)).toStrictEqual([]);
+    expect(testGraph.getNeighbors(bVertex)[0].vertex.value).toBe('C');
+    expect(testGraph.getNeighbors(bVertex)[0].weight).toBe(3);
+    expect(testGraph.getNeighbors(cVertex)[0].vertex.value).toBe('A');
+    expect(testGraph.getNeighbors(cVertex)[0].weight).toBe(0);
+    expect(testGraph.getNeighbors(aVertex)[0].vertex.value).toBe('B');
+    expect(testGraph.getNeighbors(aVertex)[0].weight).toBe(2);
   })
 
   test('Neighbors are returned with the weight between nodes included', () => {
@@ -47,6 +53,29 @@ describe('Testing Graph data structure (Directed graph represented as an adjacen
     console.error = jest.fn();
     smolGraph.addEdge(zVertex)
     expect(console.error).toHaveBeenCalled()
+  })
+
+  test('Breadth first traversal returns vertices in order visited', () => {
+    expect(testGraph.breadthFirst().length).toBe(3);
+    expect(testGraph.breadthFirst()[0].value).toBe('A')
+    expect(testGraph.breadthFirst()[1].value).toBe('B')
+    expect(testGraph.breadthFirst()[2].value).toBe('C')
+  })
+
+  test('.breadthFirst() will not include disconnected nodes', () => {
+    testGraph.addVertex('L');
+    testGraph.addVertex('M');
+    testGraph.addVertex('N');
+    testGraph.addVertex('O');
+
+    expect(testGraph.breadthFirst().length).toBe(3);
+  })
+
+  test('Breadth first should throw an error if there are no vertices in the graph', () => {
+    let emptyGraph = new Graph();
+    console.error = jest.fn()
+    emptyGraph.breadthFirst();
+    expect(console.error).toHaveBeenCalled();
   })
 
 })
