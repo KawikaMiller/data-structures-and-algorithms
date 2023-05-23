@@ -121,3 +121,4 @@ Note that when you check your code into GitHub, all of your tests will automatic
 - [401 Code Challenge 33: HashTables - Left Join](./401-code-challenges/leftJoin/leftJoin.js)
 - ~~401 Code Challenge 34 : Mock Interview~~
 - [401 Code Challenge 35: Graph (Directed Graph, Adjacency List)](./401-code-challenges/graph/graph.js)
+- [401 Code Challenge 36: Graph (Directed Graph, Adjacency List - Breadth First Traversal)](./401-code-challenges/graph/graph.js)
