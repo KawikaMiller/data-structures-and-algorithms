@@ -1,4 +1,4 @@
-# Code Challenge: Class 35
+# Code Challenge: Class 35(graph) + 36 (breadthFirst)
 
 [graph.js](./graph.js)
 
@@ -31,6 +31,10 @@ Implement a directed graph data structure. The graph should be represented as an
   - Arguments: none
   - Returns the total number of vertices in the graph
   - 0 if there are none
+
+- breadthFirst
+  - Arguments: none
+  - Returns all nodes visited
 
 ## Whiteboard Process
 

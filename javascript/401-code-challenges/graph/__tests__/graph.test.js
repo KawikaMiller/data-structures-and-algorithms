@@ -1,4 +1,5 @@
-const {Graph} = require('./graph');
+const {Graph} = require('../graph');
+const {businessTrip} = require('../businessTrip/businessTrip')
 
 describe('Testing Graph data structure (Directed graph represented as an adjacency list)...', () => {
 
@@ -78,4 +79,42 @@ describe('Testing Graph data structure (Directed graph represented as an adjacen
     expect(console.error).toHaveBeenCalled();
   })
 
+})
+
+describe('Testing businessTrip function...', () => {
+  let travelGraph = new Graph();
+  let pandora = travelGraph.addVertex('pandora')
+  let narnia = travelGraph.addVertex('narnia')
+  let metroville = travelGraph.addVertex('metroville')
+  let arendelle = travelGraph.addVertex('arendelle')
+  let monstropolis = travelGraph.addVertex('monstropolis')
+  let naboo = travelGraph.addVertex('naboo')
+  
+  travelGraph.addEdge(pandora, metroville, 82);
+  travelGraph.addEdge(metroville, pandora, 82);
+
+  travelGraph.addEdge(arendelle, monstropolis, 42);
+  travelGraph.addEdge(monstropolis, arendelle, 42);
+
+  travelGraph.addEdge(monstropolis, naboo, 73);
+  travelGraph.addEdge(naboo, monstropolis, 73);
+
+  test('Should return 82 when cities are [metroville, pandora]', () => {
+    let cities = ['metroville', 'pandora'];
+
+    expect(businessTrip(travelGraph, cities)).toEqual(82);
+  })
+
+  test('Should return 115 when cities are [arendelle, monstropolis, naboo]', () => {
+    let cities = ['arendelle', 'monstropolis', 'naboo'];
+
+    expect(businessTrip(travelGraph, cities)).toEqual(115);
+  })
+
+  test('Should return null when cities are not neighbors', () => {
+    let cities = ['naboo', 'pandora'];
+
+    expect(businessTrip(travelGraph, cities)).toEqual(null);
+  })
+  
 })

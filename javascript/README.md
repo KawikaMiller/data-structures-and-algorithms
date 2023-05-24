@@ -120,5 +120,8 @@ Note that when you check your code into GitHub, all of your tests will automatic
 - [401 Code Challenge 32: Tree Intersection](./401-code-challenges/treeIntersection/tree-intersection.js)
 - [401 Code Challenge 33: HashTables - Left Join](./401-code-challenges/leftJoin/leftJoin.js)
 - ~~401 Code Challenge 34 : Mock Interview~~
+
+### Graphs
 - [401 Code Challenge 35: Graph (Directed Graph, Adjacency List)](./401-code-challenges/graph/graph.js)
-- [401 Code Challenge 36: Graph (Directed Graph, Adjacency List - Breadth First Traversal)](./401-code-challenges/graph/graph.js)
+- [401 Code Challenge 36: Breadth First Traversal)](./401-code-challenges/graph/graph.js)
+- [401 Code Challenge 37: businessTrip())](./401-code-challenges/graph/businessTrip/businessTrip.js)
