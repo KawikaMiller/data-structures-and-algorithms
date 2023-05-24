@@ -1,4 +1,4 @@
-const { Graph, Vertex, Edge } = require('./graph')
+const { Graph, Vertex, Edge } = require('../graph')
 
 const businessTrip = (graph, citiesArray) => {
   let i = 0;

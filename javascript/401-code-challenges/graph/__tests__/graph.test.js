@@ -1,5 +1,5 @@
-const {Graph} = require('./graph');
-const {businessTrip} = require('./businessTrip')
+const {Graph} = require('../graph');
+const {businessTrip} = require('../businessTrip/businessTrip')
 
 describe('Testing Graph data structure (Directed graph represented as an adjacency list)...', () => {
 
