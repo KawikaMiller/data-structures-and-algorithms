@@ -118,3 +118,65 @@ describe('Testing businessTrip function...', () => {
   })
   
 })
+
+describe('Testing depth first traversal...', () => {
+
+  test('Should return [A B C G D E H F]', () => {
+    let myGraph = new Graph();
+    let A = myGraph.addVertex('A');
+    let B = myGraph.addVertex('B');
+    let D = myGraph.addVertex('D');
+    let C = myGraph.addVertex('C');
+    let G = myGraph.addVertex('G');
+    let E = myGraph.addVertex('E');
+    let H = myGraph.addVertex('H');
+    let F = myGraph.addVertex('F');
+
+    myGraph.addEdge(A, B);
+    myGraph.addEdge(B, C);
+    myGraph.addEdge(C, G);
+    myGraph.addEdge(B, D);
+    myGraph.addEdge(A, D);
+    myGraph.addEdge(D, E);
+    myGraph.addEdge(D, H);
+    myGraph.addEdge(H, F);
+    myGraph.addEdge(D, F);
+
+    expect(myGraph.depthFirst(A)).toStrictEqual(['A', 'B', 'C', 'G', 'D', 'E', 'H', 'F'])
+  })
+
+  test('Should return [Z X Y]', () => {
+    let myGraph = new Graph();
+    let Z = myGraph.addVertex('Z');
+    let X = myGraph.addVertex('X');
+    let Y = myGraph.addVertex('Y');
+
+    myGraph.addEdge(Z, X);
+    myGraph.addEdge(Z, Y);
+
+
+    expect(myGraph.depthFirst(Z)).toStrictEqual(['Z', 'X', 'Y'])
+  })
+
+  test('Should return [Z X Y]', () => {
+    let myGraph = new Graph();
+    let Z = myGraph.addVertex('Z');
+    let X = myGraph.addVertex('X');
+    let Y = myGraph.addVertex('Y');
+
+    myGraph.addEdge(Z, X);
+    myGraph.addEdge(Z, Y);
+
+
+    expect(myGraph.depthFirst(Z)).toStrictEqual(['Z', 'X', 'Y'])
+  })
+
+  test('Should return an array with one node', () => {
+    let myGraph = new Graph();
+
+    let Z = myGraph.addVertex('Z');
+
+    expect(myGraph.depthFirst(Z)).toStrictEqual(['Z'])
+  })
+
+})
