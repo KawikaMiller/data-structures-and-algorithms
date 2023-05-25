@@ -1,6 +1,7 @@
 'use strict';
 
 const Queue = require('../linkedList/queues');
+const Stack = require('../linkedList/stacks')
 
 // `Vertex` - A vertex, also called a “node”, is a data object that can have zero or more adjacent vertices.
 // `Edge` - An edge is a connection between two nodes.
@@ -83,7 +84,53 @@ class Graph {
 
     return visited;
   }
+
+  depthFirst = (vertex) => {
+    let stack = new Stack();
+    let visited = [vertex];
+  
+    stack.push(vertex);
+  
+    while(!stack.isEmpty()){
+      let popped = stack.pop();
+      let neighbors = this.getNeighbors(popped.value);
+  
+      if (neighbors.length){
+        neighbors.forEach(neighbor => {
+          if(!visited.includes(neighbor.vertex)){
+            visited = [...visited, ...this.depthFirst(neighbor.vertex)];
+            stack.push(neighbor.vertex);
+          }
+        })
+      }
+    }
+  
+    return visited;
+  }
 }
+
+let myGraph = new Graph();
+let A = myGraph.addVertex('A');
+let B = myGraph.addVertex('B');
+let D = myGraph.addVertex('D');
+let C = myGraph.addVertex('C');
+let G = myGraph.addVertex('G');
+let E = myGraph.addVertex('E');
+let H = myGraph.addVertex('H');
+let F = myGraph.addVertex('F');
+
+myGraph.addEdge(A, B);
+myGraph.addEdge(B, C);
+myGraph.addEdge(C, G);
+myGraph.addEdge(B, D);
+myGraph.addEdge(A, D);
+myGraph.addEdge(D, E);
+myGraph.addEdge(D, H);
+myGraph.addEdge(H, F);
+myGraph.addEdge(D, F);
+
+
+console.log(myGraph.depthFirst(A))
 
 module.exports = {
   Vertex, 
