@@ -1,6 +1,7 @@
 'use strict';
 
 const Queue = require('../linkedList/queues');
+const Stack = require('../linkedList/stacks')
 
 // `Vertex` - A vertex, also called a “node”, is a data object that can have zero or more adjacent vertices.
 // `Edge` - An edge is a connection between two nodes.
@@ -81,6 +82,29 @@ class Graph {
       }
     }
 
+    return visited;
+  }
+
+  depthFirst = (vertex) => {
+    let stack = new Stack();
+    let visited = [vertex.value];
+  
+    stack.push(vertex);
+
+    while(!stack.isEmpty()){
+      let popped = stack.pop();
+      let neighbors = this.getNeighbors(popped.value);
+  
+      if (neighbors.length){
+        neighbors.forEach(neighbor => {
+          if(!visited.includes(neighbor.vertex.value)){
+            visited = [...visited, ...this.depthFirst(neighbor.vertex)];
+            stack.push(neighbor.vertex);
+          }
+        })
+      }
+    }
+  
     return visited;
   }
 }

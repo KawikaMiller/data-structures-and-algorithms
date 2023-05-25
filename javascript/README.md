@@ -125,3 +125,4 @@ Note that when you check your code into GitHub, all of your tests will automatic
 - [401 Code Challenge 35: Graph (Directed Graph, Adjacency List)](./401-code-challenges/graph/graph.js)
 - [401 Code Challenge 36: Breadth First Traversal)](./401-code-challenges/graph/graph.js)
 - [401 Code Challenge 37: businessTrip())](./401-code-challenges/graph/businessTrip/businessTrip.js)
+- [401 Code Challenge 38: Depth First Traversal (preOrder))](./401-code-challenges/graph/graph.js)

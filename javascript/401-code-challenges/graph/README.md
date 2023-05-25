@@ -38,11 +38,18 @@ Implement a directed graph data structure. The graph should be represented as an
 
 ## Whiteboard Process
 
+### addEdge
 ![UML addEdge](./UML_Graph_addEdge.JPG)
 
+### addVertex
 ![UML addVertex](./UML_Graph_addVertex.JPG)
 
+### breadthFirst
 ![UML breadthFirst](./UML_Graph_breadthFirst.JPG)
+
+### depthFirst
+![UML depthFirst](./UML_Graph_depthFirst.JPG)
+![UML depthFirst2](./UML_Graph_depthFirst_2.JPG)
 
 *I only made a UML for the `addVertex`, `addEdge`, and `breadthFirst` methods since the other three methods are just one liners that use the built-in methods & properties from the [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) data structure.*
 
@@ -87,6 +94,21 @@ Implement a directed graph data structure. The graph should be represented as an
 - Time: O(n), because the time taken to complete the traversal depends on how many vertices a graph has or how many vertices are linked together.
 
 - Space: O(1), because we're returning an array of all vertices visited.
+
+### depthFirst()
+- **Approach:**
+  Similar to the breadthFirst method, we need to keep track of the nodes that we visit. So on the initial method invocation, we set that as the first value of the `visited` array as well as push that vertex into a `stack`.
+
+  From there, we run a while loop that iterates so long as the stack is not empty. Then we pop off the top node in the `stack` and check if it has any neighbors. 
+
+  If it does have neighbors, then we iterate through them and check if they already exist within the `visited` array. If they DO NOT exist within `visited` then we set `visited = [...visited, ...depthFirst(neighbor)]` and push the neighbor into the `stack`. From there, the while loop continues until its condition is no longer satisfied.
+
+
+- **Efficiency:** 
+
+- Time: O(n) because it depends on how many nodes are linked together in the graph
+
+- Space: O(n) because the array that we return represents each node visited
 
 ## Solution
 
@@ -145,7 +167,7 @@ class Graph {
     return this.adjacencyList.size;
   }
 
-    breadthFirst = () => {
+  breadthFirst = () => {
     let vertices = this.getVertices();
     if(!vertices.length){
       console.error('Graph has no vertices. Cannot execute breadth first traversal')
@@ -168,5 +190,28 @@ class Graph {
 
     return visited;
   }
+
+  depthFirst = (vertex) => {
+    let stack = new Stack();
+    let visited = [vertex.value];
+  
+    stack.push(vertex);
+
+    while(!stack.isEmpty()){
+      let popped = stack.pop();
+      let neighbors = this.getNeighbors(popped.value);
+  
+      if (neighbors.length){
+        neighbors.forEach(neighbor => {
+          if(!visited.includes(neighbor.vertex.value)){
+            visited = [...visited, ...this.depthFirst(neighbor.vertex)];
+            stack.push(neighbor.vertex);
+          }
+        })
+      }
+    }
+  
+    return visited;
+  }  
 }
 ```
