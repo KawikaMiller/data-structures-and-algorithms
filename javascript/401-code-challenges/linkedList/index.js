@@ -12,6 +12,21 @@ class LinkedList {
     this.head = new Node(headValue);
   }
 
+  reverse = () => {
+    let prev = undefined;
+    let current = this.head;
+    let next = undefined;
+
+    while(current){
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+
+    this.head = prev;
+  }
+
   // returns a string of the entire linked list's contents
   toString = () => {
     let listValueArr = [];
@@ -122,6 +137,29 @@ class LinkedList {
     return currentNode.value;
   }
 
+  removeDuplicateStrings = () => {
+    let visited = [];
+    let currentNode = this.head;
+  
+    while(currentNode){
+      if(!visited.includes(currentNode.value)){
+        visited.push(currentNode.value);
+        currentNode = currentNode.next;
+      } else if(visited.includes(currentNode.value)){
+        currentNode = currentNode.next;
+      }
+    }
+  
+    let newList = new LinkedList(visited[0]);
+  
+    for(let i = 1; i < visited.length; i++){
+      newList.append(visited[i]);
+    }
+  
+    this.head = newList.head
+  
+    console.log(this.head)
+  }
 }
 
 module.exports = {LinkedList, Node};
