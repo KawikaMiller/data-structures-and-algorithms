@@ -11,6 +11,20 @@ class Stack(LinkedList):
         super().__init__()
         self.top = None
 
+    def __str__(self):
+        if self.top == None:
+            return 'NULL'
+        
+        listValueArr = []
+        current = self.top
+
+        while current != None:
+            listValueArr.append(f'{current.value}')
+            current = current.next
+        
+        listString = ' -> '.join(listValueArr)
+        return listString + ' -> NULL'
+
     def is_empty(self):
         if self.top == None:
             return True
